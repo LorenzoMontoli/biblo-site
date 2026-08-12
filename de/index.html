@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Biblo — Ihre Bibliothek antwortet</title>
+	<meta name="description" content="Biblo liest Ihre PDFs auf Ihrem eigenen Rechner und lässt Sie in natürlicher Sprache Fragen stellen. Jede Antwort nennt Dokument und Seite. Kostenlose App für Windows." />
+	<link rel="canonical" href="https://lorenzomontoli.github.io/biblo-site/de/" />
+	<link rel="alternate" hreflang="it" href="https://lorenzomontoli.github.io/biblo-site/it/" />
+	<link rel="alternate" hreflang="en" href="https://lorenzomontoli.github.io/biblo-site/en/" />
+	<link rel="alternate" hreflang="fr" href="https://lorenzomontoli.github.io/biblo-site/fr/" />
+	<link rel="alternate" hreflang="es" href="https://lorenzomontoli.github.io/biblo-site/es/" />
+	<link rel="alternate" hreflang="de" href="https://lorenzomontoli.github.io/biblo-site/de/" />
+	<link rel="alternate" hreflang="x-default" href="https://lorenzomontoli.github.io/biblo-site/en/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Biblo" />
+	<meta property="og:title" content="Biblo — Ihre Bibliothek antwortet" />
+	<meta property="og:description" content="Biblo liest Ihre PDFs auf Ihrem eigenen Rechner und lässt Sie in natürlicher Sprache Fragen stellen. Jede Antwort nennt Dokument und Seite. Kostenlose App für Windows." />
+	<meta property="og:url" content="https://lorenzomontoli.github.io/biblo-site/de/" />
+	<meta property="og:image" content="https://lorenzomontoli.github.io/biblo-site/assets/img/og.png" />
+	<meta property="og:image:alt" content="Der Chat von Biblo mit einer Antwort und den zitierten Quellen" />
+	<meta property="og:locale" content="de" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="theme-color" content="#f3f3f5" />
+	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
+	<link rel="stylesheet" href="../assets/style.css" />
+	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
+	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
+	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.0","description":"Biblo liest Ihre PDFs auf Ihrem eigenen Rechner und lässt Sie in natürlicher Sprache Fragen stellen. Jede Antwort nennt Dokument und Seite. Kostenlose App für Windows.","url":"https://lorenzomontoli.github.io/biblo-site/de/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":"/api/download"};</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wird eine Internetverbindung gebraucht?","acceptedAnswer":{"@type":"Answer","text":"Zum Lesen und Durchsuchen der Dokumente nicht: Dieser Teil läuft vollständig lokal. Gebraucht wird sie für den Chat und für die Prüfphase, denn Antwort und Karten erzeugt ein Sprachmodell, das online liegt."}},{"@type":"Question","name":"Was kostet es?","acceptedAnswer":{"@type":"Answer","text":"Die Anwendung ist kostenlos. Nötig ist ein Schlüssel beim Modellanbieter (Cerebras), der einen kostenlosen Tarif hat: Der Verbrauch des Chats geht auf diesen Tarif, nicht auf uns."}},{"@type":"Question","name":"Welche Dokumente liest es?","acceptedAnswer":{"@type":"Answer","text":"PDFs, auch gescannte: Hat ein Dokument keine Textebene, schickt Biblo es durch die OCR und behandelt es danach wie jedes andere."}},{"@type":"Question","name":"Wie viele Dokumente verkraftet es?","acceptedAnswer":{"@type":"Answer","text":"Biblo wird an einer Bibliothek mit 59 Bänden und 8.727 Seiten entwickelt und arbeitet damit normal. Die praktische Grenze ist nicht die Zahl der Dateien, sondern die Dauer des ersten Lesens — die hängt von Ihrem Prozessor ab."}},{"@type":"Question","name":"Windows sagt, der Herausgeber sei unbekannt — ist das sicher?","acceptedAnswer":{"@type":"Answer","text":"Das ist die Meldung, die Windows bei jedem Programm ohne kommerzielles Zertifikat zeigt, und Biblo hat noch keines. Sie können die SHA-256-Prüfsumme der heruntergeladenen Datei mit der oben veröffentlichten vergleichen: Stimmen sie überein, ist es genau die veröffentlichte Datei."}},{"@type":"Question","name":"Werden meine Dokumente zum Training einer KI verwendet?","acceptedAnswer":{"@type":"Answer","text":"Von uns aus nicht: Wir erhalten und speichern Ihre Dateien nie. Beim Erzeugen einer Antwort geht nur die nötige Textstelle an den Modellanbieter; wie dieser damit umgeht, regeln seine eigenen Bedingungen, auf die die Datenschutzerklärung verweist."}},{"@type":"Question","name":"Kann ich meinen eigenen Schlüssel verwenden?","acceptedAnswer":{"@type":"Answer","text":"Ja, und das ist der Normalfall: Sie tragen den Schlüssel ein, und die Anfragen laufen über Ihr Konto beim Anbieter."}},{"@type":"Question","name":"Verliere ich beim Deinstallieren meine Dokumente?","acceptedAnswer":{"@type":"Answer","text":"Nein. Die PDFs bleiben dort, wo sie immer waren — in Ihren Ordnern. Entfernt werden nur die Anwendung und die von ihr erzeugten Daten."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+	<div class="wrap">
+		<a class="brand" href="./"><img src="../assets/img/logo.png" alt="" width="32" height="32" />Biblo</a>
+		<nav class="site-nav">
+			<a href="#how">So funktioniert es</a>
+			<a href="#features">Funktionen</a>
+			<a href="#faq">Fragen</a>
+		</nav>
+		<a class="btn btn-primary" href="#download" data-download-nav>Herunterladen</a>
+	</div>
+</header>
+
+<main id="main">
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero-inner">
+				<span class="eyebrow">Windows-Anwendung</span>
+				<h1>Ihre Bibliothek antwortet</h1>
+				<p class="lead">Biblo liest die PDFs, die ohnehin auf Ihrem Rechner liegen, indiziert sie lokal und lässt Sie fragen wie eine Kollegin oder einen Kollegen. Jede Antwort sagt, aus welchem Dokument und von welcher Seite sie stammt.</p>
+				<div class="hero-cta">
+					<a class="btn btn-primary btn-lg" href="https://github.com/LorenzoMontoli/biblo-releases/releases/latest" data-download-link><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Für Windows herunterladen</a>
+					<a class="btn btn-secondary btn-lg" href="#features">Ansehen, wie es aussieht</a>
+				</div>
+				<p class="hero-sub">Kostenlos · Windows 10 und 11, 64 Bit</p>
+				<p class="counter" data-counter>
+					<b data-counter-value>—</b> <span>Downloads bisher</span>
+				</p>
+			</div>
+			<div class="hero-shot reveal">
+				<div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo — Chat</span></div>
+			<img src="../assets/img/chat.webp" alt="Der Chat von Biblo mit einer Antwort und den zitierten Quellen" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="trust">
+		<div class="wrap">
+			<div class="trust-grid">
+				<div><b>Lokal</b><span>Lesen und Index bleiben auf Ihrem Rechner</span></div>
+				<div><b>Quellen belegt</b><span>Dokument und Seite unter jeder Antwort</span></div>
+				<div><b>PDFs und Scans</b><span>OCR inklusive für Dokumente ohne Textebene</span></div>
+				<div><b>5 Sprachen</b><span>Italienisch, Englisch, Französisch, Spanisch, Deutsch</span></div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="wrap">
+			<div class="section-head">
+				<h2>Die Wortsuche findet das Wort, nicht die Antwort</h2>
+				<p>Bei Hunderten von Bänden besteht das Problem nicht mehr darin, einen Begriff zu finden, sondern sich zu erinnern, in welchem Buch davon die Rede war — und wie. Biblo hält beide Enden zusammen: Es sucht nach Bedeutung statt nach Buchstaben und liefert genau die Stelle, aus der seine Aussage stammt.</p>
+			</div>
+			<div class="cols-3">
+				<div class="card card-hover reveal">
+					<h3>Sucht nach Bedeutung</h3>
+					<p>Fragen Sie „wie wurde die Zustimmung begründet“, und es findet die Passagen dazu, auch wenn genau diese Wörter nicht vorkommen.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Antwortet mit Belegen</h3>
+					<p>Unter jeder Antwort stehen die verwendeten Dateien und die zitierten Stellen mit Seitenzahl. Ein Klick öffnet das PDF an der richtigen Stelle.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Sagt auch, wenn es nichts weiß</h3>
+					<p>Steht die Antwort nicht in Ihren Dokumenten, sagt es das — statt sie zu erfinden.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="how">
+		<div class="wrap">
+			<div class="section-head">
+				<span class="eyebrow">So funktioniert es</span>
+				<h2>Drei Schritte, einmalig</h2>
+				<p>Danach bleibt die Bibliothek bereit: Sie aktualisiert sich nur, wenn neue Dokumente hinzukommen.</p>
+			</div>
+			<div class="steps">
+				<div class="step reveal">
+					<div class="num">1</div>
+					<h3>Ordner verbinden</h3>
+					<p>Sie zeigen Biblo, wo die PDFs liegen. Sie bleiben, wo sie sind: kein Hochladen, keine Kopien in der Cloud, kein Umsortieren von Ordnern.</p>
+				</div>
+				<div class="step reveal">
+					<div class="num">2</div>
+					<h3>Biblo liest, prüft, verknüpft</h3>
+					<p>Drei getrennte, wiederholbare Phasen. <b>Lesen</b> bereitet den Text für die Suche auf. <b>Prüfen</b> baut die Karten zu Autoren, Werken und Figuren. <b>Verbindungen finden</b> setzt die Dokumente zueinander in Beziehung.</p>
+				</div>
+				<div class="step reveal">
+					<div class="num">3</div>
+					<h3>Fragen</h3>
+					<p>Sie schreiben Ihre Frage in den Chat. Biblo wählt den passenden Assistenten, sucht in den Texten, wählt die Stellen aus und antwortet mit Belegen.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="features">
+		<div class="wrap">
+			<div class="section-head">
+				<span class="eyebrow">Funktionen</span>
+				<h2>Was drinsteckt</h2>
+				<p>Jeder Screenshot unten zeigt die echte Anwendung, kein Mockup.</p>
+			</div>
+			<article class="feature reveal">
+				<div class="feature-text">
+					<span class="tag">Chat</span>
+					<h3>Antworten mit Quellen</h3>
+					<p>Der Chat antwortet nicht einfach: Er listet die verwendeten Dateien und die zitierten Stellen mit Seitenzahl auf. Von dort öffnen Sie das PDF oder haken Dokumente an, um nur mit diesen weiterzuarbeiten.</p>
+				</div>
+				<div class="feature-shot"><div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<img src="../assets/img/chat-fonti.webp" alt="Der Chat von Biblo mit Antwort, Liste der verwendeten Dateien und Quellen" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div></div>
+			</article>
+			<article class="feature reveal">
+				<div class="feature-text">
+					<span class="tag">Assistenten</span>
+					<h3>Spezialisierte Assistenten</h3>
+					<p>Einen Band zusammenfassen, zwei Texte vergleichen, eine Stelle finden, eine Argumentation analysieren: Jede Aufgabe hat ihren Assistenten und ihre Art zu lesen. Biblo wählt selbst den passenden — oder Sie wählen ihn.</p>
+				</div>
+				<div class="feature-shot"><div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<img src="../assets/img/skill.webp" alt="Die Liste der spezialisierten Assistenten von Biblo" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div></div>
+			</article>
+			<article class="feature reveal">
+				<div class="feature-text">
+					<span class="tag">Bibliothek</span>
+					<h3>Die Bibliothek in drei Phasen</h3>
+					<p>Auf einen Blick: wie viele Dokumente gelesen, wie viele geprüft, wie viele verknüpft sind. Die drei Phasen sind bewusst getrennt — alles sofort lesen, in Ruhe vertiefen.</p>
+				</div>
+				<div class="feature-shot"><div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<img src="../assets/img/libreria.webp" alt="Die Bibliotheksseite von Biblo mit dem Fortschritt der drei Phasen" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div></div>
+			</article>
+			<article class="feature reveal">
+				<div class="feature-text">
+					<span class="tag">Regal</span>
+					<h3>Das Regal</h3>
+					<p>Ihre Dokumente werden zu Bänden im Regal, sortierbar nach Datum, Titel oder Autor, mit Sprache und Kennzeichnung der Scans. Ein Klick öffnet das Buch.</p>
+				</div>
+				<div class="feature-shot"><div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<img src="../assets/img/scaffale.webp" alt="Das Regal von Biblo mit nach Autor sortierten Bänden" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div></div>
+			</article>
+			<article class="feature reveal">
+				<div class="feature-text">
+					<span class="tag">Suche</span>
+					<h3>Intelligente Suche</h3>
+					<p>Beschreiben Sie ein Thema, und Biblo sagt Ihnen, welche Bände wirklich davon handeln — nach Relevanz geordnet. Das Ergebnis lässt sich als Auswahl speichern und wird zum Rahmen des Gesprächs.</p>
+				</div>
+				<div class="feature-shot"><div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<img src="../assets/img/cerca.webp" alt="Die intelligente Suche von Biblo mit nach Relevanz geordneten Treffern" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div></div>
+			</article>
+			<article class="feature reveal">
+				<div class="feature-text">
+					<span class="tag">Zitate</span>
+					<h3>Zitatverzeichnis</h3>
+					<p>Alles, was Ihre Texte zitieren — Werke, Autoren, Figuren — gesammelt in einem einzigen durchsuchbaren Verzeichnis, mit der Häufigkeit jedes Eintrags.</p>
+				</div>
+				<div class="feature-shot"><div class="shot">
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<img src="../assets/img/citazioni.webp" alt="Das Zitatverzeichnis von Biblo, aufgeteilt in Dokumente, Autoren und Figuren" width="1600" height="1000" loading="lazy" decoding="async" />
+		</div></div>
+			</article>
+			<div class="section-head" style="margin-top:5rem">
+				<h2>Und außerdem</h2>
+			</div>
+			<div class="cols-4">
+				<div class="card card-hover reveal">
+					<h3>OCR für Scans</h3>
+					<p>PDFs ohne Textebene werden mit der Windows-OCR erkannt — oder mit EasyOCR für die Sprachen, die sie nicht abdeckt — und sind danach genauso durchsuchbar wie der Rest.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Auswahlen</h3>
+					<p>Grenzen Sie das Gespräch auf eine Gruppe von Dokumenten ein: außerhalb dieser Auswahl schaut Biblo nicht nach, weder zum Suchen noch zum Zitieren.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Helles und dunkles Thema</h3>
+					<p>Oberfläche in fünf Sprachen, helles oder dunkles Thema und einstellbarer Zoom: Alles skaliert, nichts wird unleserlich.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Ihres, exportierbar</h3>
+					<p>Karten, Verbindungen und Gespräche sind Dateien auf Ihrer Festplatte und lassen sich jederzeit exportieren.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="section-head">
+				<span class="eyebrow">Datenschutz</span>
+				<h2>Ihre Dokumente verlassen Ihren Rechner nicht</h2>
+				<p>Lesen, Index und Suchspeicher sind lokal: Keine Datei wird irgendwohin hochgeladen. Wenn Sie eine Frage stellen, geht nur die zur Antwort nötige Stelle zusammen mit Ihrer Frage an das Sprachmodell. Sie läuft nicht über unsere Server, und wir speichern sie nicht.</p>
+			</div>
+			<div class="cols-3">
+				<div class="card reveal">
+					<h3>Kein Hochladen</h3>
+					<p>Die PDFs bleiben in Ihren Ordnern. Der Index liegt daneben, auf Ihrer Festplatte.</p>
+				</div>
+				<div class="card reveal">
+					<h3>Nur das Nötige</h3>
+					<p>Heraus geht die Stelle, die für genau diese eine Antwort gebraucht wird — nicht die Bibliothek.</p>
+				</div>
+				<div class="card reveal">
+					<h3>Ihr eigener Schlüssel</h3>
+					<p>Biblo nutzt Ihren Schlüssel beim Modellanbieter: Die Anfragen laufen über Ihr Konto, nicht über unseres.</p>
+				</div>
+			</div>
+			<p style="margin-top:2rem"><a href="./privacy.html">Vollständige Datenschutzerklärung lesen →</a></p>
+		</div>
+	</section>
+
+	<section id="download">
+		<div class="wrap">
+			<div class="download-card reveal">
+				<span class="eyebrow">Download</span>
+				<h2>Probieren Sie es an Ihrer Bibliothek aus</h2>
+				<p>Installation für Ihr Benutzerkonto: keine Administratorrechte, nichts von Hand einzurichten.</p>
+				<p style="margin-top:2rem">
+					<a class="btn btn-primary btn-lg" href="https://github.com/LorenzoMontoli/biblo-releases/releases/latest" data-download data-download-link><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Für Windows herunterladen</a>
+				</p>
+				<p class="counter" data-counter>
+					<b data-counter-value>—</b> <span>Downloads bisher</span>
+				</p>
+				<p class="dl-missing" data-release-missing hidden>Die Datei ist noch nicht veröffentlicht: Die Schaltfläche führt zur Release-Seite.</p>
+				<dl class="download-meta">
+					<div><dt>Version</dt><dd data-release-version>1.0.0</dd></div>
+					<div><dt>Größe</dt><dd data-release-size>596 MB</dd></div>
+					<div><dt>Veröffentlicht am</dt><dd data-release-date>12. August 2026</dd></div>
+				</dl>
+				<div class="checksum">SHA-256-Prüfsumme — Zum Prüfen in PowerShell:
+					<code>(Get-FileHash Biblo_1.0.0_x64-setup.exe -Algorithm SHA256).Hash</code>
+					<code data-release-sha>8723E0544EFCC8F18C4F77E4F912BA0170CBAFFE390BE827EDD96990E16BBF86</code>
+				</div>
+				<div class="note" style="margin-top:2rem">
+					<b>Windows meldet „Unbekannter Herausgeber“</b>
+					Das Installationsprogramm ist noch nicht mit einem Zertifikat signiert: Beim ersten Start zeigt Windows eine Schutzmeldung. So geht es weiter: <em>Weitere Informationen</em> → <em>Trotzdem ausführen</em>.
+				</div>
+			</div>
+
+			<div class="req" style="margin-top:4.5rem">
+				<div class="section-head" style="margin-bottom:2rem">
+					<h2>Was Sie brauchen</h2>
+				</div>
+				<div class="cols-4">
+					<div class="reveal">
+					<h3>Windows 10 oder 11</h3>
+					<p>64 Bit. Versionen für macOS und Linux gibt es vorerst nicht.</p>
+				</div>
+				<div class="reveal">
+					<h3>Speicherplatz</h3>
+					<p>Rund 2,5 GB: die Anwendung, das Modell, das Text in Zahlen verwandelt, und der Index Ihrer Bibliothek.</p>
+				</div>
+				<div class="reveal">
+					<h3>Ein Cerebras-Schlüssel</h3>
+					<p>Kostenlos, in einer Minute auf der Seite des Anbieters erstellt. Ohne Schlüssel kann der KI-Teil nicht arbeiten, deshalb fragt die App beim Start danach.</p>
+				</div>
+				<div class="reveal">
+					<h3>Keine Grafikkarte</h3>
+					<p>Alles läuft auf dem Prozessor. Auf bescheidenen Rechnern dauert das erste Lesen, doch die App lässt bewusst Kerne frei, damit der Rechner bedienbar bleibt.</p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="faq">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>Fragen</h2>
+			</div>
+			<div class="faq-list">
+				<details class="faq-item">
+					<summary>Wird eine Internetverbindung gebraucht?</summary>
+					<p>Zum Lesen und Durchsuchen der Dokumente nicht: Dieser Teil läuft vollständig lokal. Gebraucht wird sie für den Chat und für die Prüfphase, denn Antwort und Karten erzeugt ein Sprachmodell, das online liegt.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Was kostet es?</summary>
+					<p>Die Anwendung ist kostenlos. Nötig ist ein Schlüssel beim Modellanbieter (Cerebras), der einen kostenlosen Tarif hat: Der Verbrauch des Chats geht auf diesen Tarif, nicht auf uns.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Welche Dokumente liest es?</summary>
+					<p>PDFs, auch gescannte: Hat ein Dokument keine Textebene, schickt Biblo es durch die OCR und behandelt es danach wie jedes andere.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Wie viele Dokumente verkraftet es?</summary>
+					<p>Biblo wird an einer Bibliothek mit 59 Bänden und 8.727 Seiten entwickelt und arbeitet damit normal. Die praktische Grenze ist nicht die Zahl der Dateien, sondern die Dauer des ersten Lesens — die hängt von Ihrem Prozessor ab.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Windows sagt, der Herausgeber sei unbekannt — ist das sicher?</summary>
+					<p>Das ist die Meldung, die Windows bei jedem Programm ohne kommerzielles Zertifikat zeigt, und Biblo hat noch keines. Sie können die SHA-256-Prüfsumme der heruntergeladenen Datei mit der oben veröffentlichten vergleichen: Stimmen sie überein, ist es genau die veröffentlichte Datei.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Werden meine Dokumente zum Training einer KI verwendet?</summary>
+					<p>Von uns aus nicht: Wir erhalten und speichern Ihre Dateien nie. Beim Erzeugen einer Antwort geht nur die nötige Textstelle an den Modellanbieter; wie dieser damit umgeht, regeln seine eigenen Bedingungen, auf die die Datenschutzerklärung verweist.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Kann ich meinen eigenen Schlüssel verwenden?</summary>
+					<p>Ja, und das ist der Normalfall: Sie tragen den Schlüssel ein, und die Anfragen laufen über Ihr Konto beim Anbieter.</p>
+				</details>
+				<details class="faq-item">
+					<summary>Verliere ich beim Deinstallieren meine Dokumente?</summary>
+					<p>Nein. Die PDFs bleiben dort, wo sie immer waren — in Ihren Ordnern. Entfernt werden nur die Anwendung und die von ihr erzeugten Daten.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<footer class="site-footer">
+	<div class="wrap">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<a class="brand" href="./"><img src="../assets/img/logo.png" alt="" width="32" height="32" />Biblo</a>
+				<p>Ihr Assistent für die Recherche.</p>
+			</div>
+			<div class="footer-links">
+				<ul>
+					<li><a href="./#features">Funktionen</a></li>
+					<li><a href="./#download">Herunterladen</a></li>
+					<li><a href="./#faq">Fragen</a></li>
+				</ul>
+				<ul>
+					<li><a href="./privacy.html">Datenschutzerklärung</a></li>
+					<li><a href="./terms.html">Nutzungsbedingungen</a></li>
+					<li><a href="mailto:lorenzomontoli@gmail.com">Kontakt</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<span>© 2026 Biblo. Alle Rechte vorbehalten.</span>
+			<div class="lang-picker"><a href="../it/" hreflang="it" lang="it">Italiano</a><a href="../en/" hreflang="en" lang="en">English</a><a href="../fr/" hreflang="fr" lang="fr">Français</a><a href="../es/" hreflang="es" lang="es">Español</a><a href="../de/" hreflang="de" lang="de" aria-current="true">Deutsch</a></div>
+		</div>
+	</div>
+</footer>
+<script src="../assets/app.js" defer></script>
+</body>
+</html>
