@@ -83,23 +83,44 @@
 	}
 
 	if (CFG.repo) {
-		fetch('https://api.github.com/repos/' + CFG.repo + '/releases/latest', {
+		// Si chiede l'ELENCO delle release, non solo l'ultima: il contatore deve
+		// sommare i download di tutte le versioni, altrimenti ogni volta che se ne
+		// pubblica una nuova il totale riparte da zero (e il blocco sparisce).
+		fetch('https://api.github.com/repos/' + CFG.repo + '/releases?per_page=100', {
 			headers: { Accept: 'application/vnd.github+json' }
 		})
 			.then(function (r) {
-				if (!r.ok) throw new Error('no release');
+				if (!r.ok) throw new Error('no releases');
 				return r.json();
 			})
-			.then(function (rel) {
-				// Download VERI dell'installer, contati da GitHub: nessun server da
-				// tenere in piedi e un numero piu` onesto dei clic sul pulsante (chi
-				// clicca e annulla non conta). Se e` configurato un contatore proprio,
-				// quello ha la precedenza — vedi piu` sotto.
-				var scaricati = (rel.assets || []).reduce(function (s, a) {
-					return s + (a.download_count || 0);
-				}, 0);
+			.then(function (elenco) {
+				var conInstaller = (elenco || []).filter(function (x) {
+					return (
+						!x.draft &&
+						!x.prerelease &&
+						(x.assets || []).some(function (a) {
+							return /\.exe$/i.test(a.name);
+						})
+					);
+				});
+				if (!conInstaller.length) throw new Error('no installer');
+
+				// Download VERI dell'installer, contati da GitHub su TUTTE le versioni:
+				// nessun server da tenere in piedi e un numero piu` onesto dei clic sul
+				// pulsante (chi clicca e annulla non conta). Un contatore proprio, se
+				// configurato, ha comunque la precedenza — vedi piu` sotto.
+				var scaricati = 0;
+				conInstaller.forEach(function (x) {
+					(x.assets || []).forEach(function (a) {
+						if (/\.exe$/i.test(a.name)) scaricati += a.download_count || 0;
+					});
+				});
 				if (scaricati > 0) showCount(scaricati, 'github');
 
+				// La piu` recente e` la prima: l'API le restituisce in ordine di
+				// creazione decrescente. Le release non-app (es. il modello) sono
+				// gia` fuori perche' non hanno un .exe.
+				var rel = conInstaller[0];
 				var asset = (rel.assets || []).filter(function (a) {
 					return /\.exe$/i.test(a.name);
 				})[0];
