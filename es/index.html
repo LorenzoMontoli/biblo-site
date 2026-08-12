@@ -28,7 +28,7 @@
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.0","description":"Biblo lee tus PDF en tu propio ordenador y te deja preguntarles en lenguaje natural. Cada respuesta cita el documento y la página. Aplicación gratuita para Windows.","url":"https://lorenzomontoli.github.io/biblo-site/es/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.1","description":"Biblo lee tus PDF en tu propio ordenador y te deja preguntarles en lenguaje natural. Cada respuesta cita el documento y la página. Aplicación gratuita para Windows.","url":"https://lorenzomontoli.github.io/biblo-site/es/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Hace falta conexión a internet?","acceptedAnswer":{"@type":"Answer","text":"Para leer y buscar en los documentos no: esa parte es completamente local. Hace falta para el chat y para la inspección, porque la respuesta y las fichas las genera un modelo de lenguaje que está en línea."}},{"@type":"Question","name":"¿Cuánto cuesta?","acceptedAnswer":{"@type":"Answer","text":"La aplicación es gratuita. Hace falta una clave del proveedor del modelo (Cerebras), que tiene un plan gratuito: el consumo del chat pesa sobre ese plan, no sobre nosotros."}},{"@type":"Question","name":"¿Qué documentos lee?","acceptedAnswer":{"@type":"Answer","text":"PDF, incluidos los escaneados: si un documento no tiene capa de texto, Biblo lo pasa por OCR y luego lo trata como a los demás."}},{"@type":"Question","name":"¿Cuántos documentos aguanta?","acceptedAnswer":{"@type":"Answer","text":"Biblo se desarrolla sobre una biblioteca de 59 volúmenes y 8.727 páginas, y funciona con normalidad. El límite práctico no es el número de archivos, sino el tiempo de la primera lectura, que depende de tu procesador."}},{"@type":"Question","name":"Windows dice que el editor es desconocido: ¿es seguro?","acceptedAnswer":{"@type":"Answer","text":"Es el aviso que Windows muestra con cualquier programa no firmado con un certificado comercial, y Biblo todavía no lo está. Puedes comparar la huella SHA-256 del archivo descargado con la publicada arriba: si coincide, el archivo es exactamente el que se publicó."}},{"@type":"Question","name":"¿Mis documentos sirven para entrenar una inteligencia artificial?","acceptedAnswer":{"@type":"Answer","text":"Por nuestra parte no: no recibimos ni conservamos tus archivos. Al generar una respuesta solo se envía al proveedor del modelo el pasaje necesario; su tratamiento se rige por las condiciones de ese proveedor, recogidas en la política de privacidad."}},{"@type":"Question","name":"¿Puedo usar mi propia clave?","acceptedAnswer":{"@type":"Answer","text":"Sí, y es el funcionamiento normal: la clave la introduces tú y las peticiones pasan por tu cuenta con el proveedor."}},{"@type":"Question","name":"Si desinstalo, ¿pierdo los documentos?","acceptedAnswer":{"@type":"Answer","text":"No. Los PDF se quedan donde han estado siempre, en tus carpetas. Solo se eliminan la aplicación y los datos que ella ha producido."}}]}</script>
 </head>
@@ -371,13 +371,13 @@
 				</p>
 				<p class="dl-missing" data-release-missing hidden>El archivo aún no está publicado: el botón lleva a la página de versiones.</p>
 				<dl class="download-meta">
-					<div><dt>Versión</dt><dd data-release-version>1.0.0</dd></div>
+					<div><dt>Versión</dt><dd data-release-version>1.0.1</dd></div>
 					<div><dt>Tamaño</dt><dd data-release-size>596 MB</dd></div>
 					<div><dt>Publicada el</dt><dd data-release-date>12 de agosto de 2026</dd></div>
 				</dl>
 				<div class="checksum">Huella SHA-256 — Para comprobarla, en PowerShell:
-					<code>(Get-FileHash Biblo_1.0.0_x64-setup.exe -Algorithm SHA256).Hash</code>
-					<code data-release-sha>8723E0544EFCC8F18C4F77E4F912BA0170CBAFFE390BE827EDD96990E16BBF86</code>
+					<code>(Get-FileHash Biblo_1.0.1_x64-setup.exe -Algorithm SHA256).Hash</code>
+					<code data-release-sha>6B14A3097D27AC4F5C556B46B6BAA47A77586A9409BEA2D25AB75CC3D870299E</code>
 				</div>
 				<div class="note" style="margin-top:2rem">
 					<b>Windows dirá «Editor desconocido»</b>
