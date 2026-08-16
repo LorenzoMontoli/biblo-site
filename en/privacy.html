@@ -28,7 +28,7 @@
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.1","description":"Biblo reads your PDFs on your own computer and lets you question them in plain language. Every answer cites the document and the page. Free app for Windows.","url":"https://lorenzomontoli.github.io/biblo-site/en/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.1.0","description":"Biblo reads your PDFs on your own computer and lets you question them in plain language. Every answer cites the document and the page. Free app for Windows.","url":"https://lorenzomontoli.github.io/biblo-site/en/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
 	<meta name="robots" content="index,follow" />
 </head>
@@ -48,7 +48,7 @@
 	<article class="legal-page">
 		<a class="back-link" href="./">← Back to the site</a>
 		<h1>Privacy policy</h1>
-		<p class="updated">Last updated: August 12, 2026</p>
+		<p class="updated">Last updated: August 16, 2026</p>
 		<div class="draft-warning"><b>Draft pending review.</b> This text describes faithfully how the application works, but it is not legal advice: it must be reviewed by a professional before distribution, and the fields in square brackets must be completed.</div>
 		<h2>In short</h2>
 			<p>Biblo is an application that runs on your computer. The documents you index and the search store stay there: we don't receive them, don't store them, don't see them. The only moment anything leaves your computer is the chat, and what leaves is just the passage of text needed to answer the question you have just asked.</p>
@@ -68,8 +68,8 @@
 			
 			<ul><li><b>Document excerpts and conversation text</b> — sent to the model provider to generate the answer. These may contain personal data if your documents do.</li><li><b>Application settings</b> — assistant name, language, keys, folder paths: stored locally only.</li><li><b>Conversation history</b> — stored on your device only.</li><li><b>The site's download count</b> — an aggregate count of started downloads, with no personal data and no identifiers.</li></ul>
 
-			<h2>4. The language model provider</h2>
-			<p>Answers are generated through the <b>Cerebras</b> API (<code>api.cerebras.ai</code>). Processing of the data sent to that API is governed by that provider's terms and privacy policy, which we encourage you to read: [TO VERIFY AND QUOTE HERE: the clause on data submitted via the API and its use for training].</p>
+			<h2>4. The language model providers</h2>
+			<p>Answers are generated through the APIs of <b>Mistral AI</b> (<code>api.mistral.ai</code>) and/or <b>Google Gemini</b> (<code>generativelanguage.googleapis.com</code>), depending on which keys you configure. On the free plans both providers may use the submitted data to improve their models: Mistral lets you opt out in your account settings, while the Google Gemini free plan offers no opt-out. The app points this out when you enter a key, so you can choose which provider to use. Processing remains governed by those providers' terms and privacy policies, which we encourage you to read.</p>
 			
 
 			<h2>5. Transfers outside the European Economic Area</h2>

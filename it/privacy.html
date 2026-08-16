@@ -28,7 +28,7 @@
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.1","description":"Biblo legge i tuoi PDF sul tuo computer e ti lascia interrogarli in linguaggio naturale. Ogni risposta cita documenti e pagine. App gratuita per Windows.","url":"https://lorenzomontoli.github.io/biblo-site/it/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.1.0","description":"Biblo legge i tuoi PDF sul tuo computer e ti lascia interrogarli in linguaggio naturale. Ogni risposta cita documenti e pagine. App gratuita per Windows.","url":"https://lorenzomontoli.github.io/biblo-site/it/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
 	<meta name="robots" content="index,follow" />
 </head>
@@ -48,7 +48,7 @@
 	<article class="legal-page">
 		<a class="back-link" href="./">← Torna al sito</a>
 		<h1>Informativa privacy</h1>
-		<p class="updated">Ultimo aggiornamento: 12 agosto 2026</p>
+		<p class="updated">Ultimo aggiornamento: 16 agosto 2026</p>
 		<div class="draft-warning"><b>Bozza da far verificare.</b> Questo testo descrive fedelmente il funzionamento dell'applicazione, ma non è un parere legale: prima della distribuzione va rivisto da un professionista, e i campi fra parentesi quadre vanno completati.</div>
 		<h2>In due righe</h2>
 			<p>Biblo è un'applicazione che gira sul tuo computer. I documenti che indicizzi e l'archivio delle ricerche restano lì: non li riceviamo, non li conserviamo, non li vediamo. L'unico momento in cui qualcosa esce dal tuo computer è la chat, e a uscire è solo il brano di testo necessario a rispondere alla domanda che hai appena fatto.</p>
@@ -68,8 +68,8 @@
 			
 			<ul><li><b>Brani dei documenti e testo della conversazione</b> — inviati al fornitore del modello per generare la risposta. Possono contenere dati personali se ne contengono i tuoi documenti.</li><li><b>Impostazioni dell'applicazione</b> — nome dell'assistente, lingua, chiavi, percorsi delle cartelle: salvate solo in locale.</li><li><b>Cronologia delle conversazioni</b> — salvata solo sul tuo dispositivo.</li><li><b>Numero di download del sito</b> — un conteggio aggregato degli avvii di download, senza dati personali né identificativi.</li></ul>
 
-			<h2>4. Il fornitore del modello linguistico</h2>
-			<p>Le risposte sono generate tramite l'API di <b>Cerebras</b> (<code>api.cerebras.ai</code>). Il trattamento dei dati inviati all'API è regolato dai termini e dall'informativa di quel fornitore, che ti invitiamo a leggere: [VERIFICARE E CITARE QUI la clausola sui dati inviati via API e sull'uso per l'addestramento].</p>
+			<h2>4. I fornitori del modello linguistico</h2>
+			<p>Le risposte sono generate tramite le API di <b>Mistral AI</b> (<code>api.mistral.ai</code>) e/o di <b>Google Gemini</b> (<code>generativelanguage.googleapis.com</code>), a seconda delle chiavi che configuri. Sui piani gratuiti entrambi i fornitori possono usare i dati inviati per migliorare i loro modelli: Mistral consente di disattivare questo uso dalle impostazioni del proprio account, il piano gratuito di Google Gemini non lo prevede. L'applicazione te lo segnala quando inserisci la chiave, così puoi scegliere il fornitore. Il trattamento è comunque regolato dai termini e dalle informative di quei fornitori, che ti invitiamo a leggere.</p>
 			
 
 			<h2>5. Trasferimenti fuori dallo Spazio economico europeo</h2>

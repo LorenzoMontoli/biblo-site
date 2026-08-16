@@ -28,9 +28,9 @@
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.1","description":"Biblo lit vos PDF sur votre propre ordinateur et vous laisse les interroger en langage naturel. Chaque réponse cite le document et la page. Application gratuite pour Windows.","url":"https://lorenzomontoli.github.io/biblo-site/fr/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.1.0","description":"Biblo lit vos PDF sur votre propre ordinateur et vous laisse les interroger en langage naturel. Chaque réponse cite le document et la page. Application gratuite pour Windows.","url":"https://lorenzomontoli.github.io/biblo-site/fr/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il une connexion internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour lire et chercher dans les documents : cette partie est entièrement locale. Elle est nécessaire pour le chat et pour l'inspection, car la réponse et les fiches sont produites par un modèle de langage en ligne."}},{"@type":"Question","name":"Combien ça coûte ?","acceptedAnswer":{"@type":"Answer","text":"L'application est gratuite. Il faut une clé chez le fournisseur du modèle (Cerebras), qui propose un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous."}},{"@type":"Question","name":"Quels documents lit-il ?","acceptedAnswer":{"@type":"Answer","text":"Les PDF, y compris numérisés : si un document n'a pas de couche de texte, Biblo le passe à l'OCR puis le traite comme les autres."}},{"@type":"Question","name":"Combien de documents supporte-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Biblo est développé sur une bibliothèque de 59 volumes et 8 727 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur."}},{"@type":"Question","name":"Windows dit que l'éditeur est inconnu : est-ce sûr ?","acceptedAnswer":{"@type":"Answer","text":"C'est l'avertissement que Windows affiche pour tout programme non signé par un certificat commercial, et Biblo ne l'est pas encore. Vous pouvez comparer l'empreinte SHA-256 du fichier téléchargé avec celle publiée ci-dessus : si elles correspondent, le fichier est exactement celui qui a été publié."}},{"@type":"Question","name":"Mes documents servent-ils à entraîner une intelligence artificielle ?","acceptedAnswer":{"@type":"Answer","text":"Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle ; son traitement relève de ses propres conditions, rappelées dans la politique de confidentialité."}},{"@type":"Question","name":"Puis-je utiliser ma propre clé ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est le fonctionnement normal : vous saisissez la clé et les requêtes passent par votre compte chez le fournisseur."}},{"@type":"Question","name":"Si je désinstalle, est-ce que je perds mes documents ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les PDF restent là où ils ont toujours été, dans vos dossiers. Seuls l'application et les données qu'elle a produites sont supprimés."}}]}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il une connexion internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour lire et chercher dans les documents : cette partie est entièrement locale. Elle est nécessaire pour le chat et pour l'inspection, car la réponse et les fiches sont produites par un modèle de langage en ligne."}},{"@type":"Question","name":"Combien ça coûte ?","acceptedAnswer":{"@type":"Answer","text":"L'application est gratuite. Il faut une clé chez un fournisseur du modèle — Mistral ou Google Gemini, une seule suffit — et les deux proposent un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous."}},{"@type":"Question","name":"Quels documents lit-il ?","acceptedAnswer":{"@type":"Answer","text":"Les PDF, y compris numérisés : si un document n'a pas de couche de texte, Biblo le passe à l'OCR puis le traite comme les autres."}},{"@type":"Question","name":"Combien de documents supporte-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Biblo est développé sur une bibliothèque de 70 volumes et plus de 11 000 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur."}},{"@type":"Question","name":"Windows dit que l'éditeur est inconnu : est-ce sûr ?","acceptedAnswer":{"@type":"Answer","text":"C'est l'avertissement que Windows affiche pour tout programme non signé par un certificat commercial, et Biblo ne l'est pas encore. Vous pouvez comparer l'empreinte SHA-256 du fichier téléchargé avec celle publiée ci-dessus : si elles correspondent, le fichier est exactement celui qui a été publié."}},{"@type":"Question","name":"Mes documents servent-ils à entraîner une intelligence artificielle ?","acceptedAnswer":{"@type":"Answer","text":"Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle. Sur les plans gratuits, les fournisseurs peuvent toutefois utiliser ces textes pour améliorer leurs modèles : Mistral permet de le désactiver dans les réglages de votre compte, le plan gratuit de Google Gemini non. L'application vous l'explique quand vous saisissez la clé."}},{"@type":"Question","name":"Puis-je utiliser ma propre clé ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est le fonctionnement normal : vous saisissez la clé et les requêtes passent par votre compte chez le fournisseur."}},{"@type":"Question","name":"Si je désinstalle, est-ce que je perds mes documents ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les PDF restent là où ils ont toujours été, dans vos dossiers. Seuls l'application et les données qu'elle a produites sont supprimés."}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -371,13 +371,13 @@
 				</p>
 				<p class="dl-missing" data-release-missing hidden>Le fichier n'est pas encore publié : le bouton mène à la page des versions.</p>
 				<dl class="download-meta">
-					<div><dt>Version</dt><dd data-release-version>1.0.1</dd></div>
-					<div><dt>Taille</dt><dd data-release-size>596 MB</dd></div>
-					<div><dt>Publiée le</dt><dd data-release-date>12 août 2026</dd></div>
+					<div><dt>Version</dt><dd data-release-version>1.1.0</dd></div>
+					<div><dt>Taille</dt><dd data-release-size>597 MB</dd></div>
+					<div><dt>Publiée le</dt><dd data-release-date>16 août 2026</dd></div>
 				</dl>
 				<div class="checksum">Empreinte SHA-256 — Pour la vérifier, dans PowerShell :
-					<code>(Get-FileHash Biblo_1.0.1_x64-setup.exe -Algorithm SHA256).Hash</code>
-					<code data-release-sha>6B14A3097D27AC4F5C556B46B6BAA47A77586A9409BEA2D25AB75CC3D870299E</code>
+					<code>(Get-FileHash Biblo_1.1.0_x64-setup.exe -Algorithm SHA256).Hash</code>
+					<code data-release-sha>BC3E52F4CE0E8BB5E2A348FFE4FA3F479B136A5517DAEE69193F1931B718B155</code>
 				</div>
 				<div class="note" style="margin-top:2rem">
 					<b>Windows affichera « Éditeur inconnu »</b>
@@ -399,8 +399,8 @@
 					<p>Environ 2,5 Go : l'application, le modèle qui transforme le texte en nombres et l'index de votre bibliothèque.</p>
 				</div>
 				<div class="reveal">
-					<h3>Une clé Cerebras</h3>
-					<p>Gratuite, obtenue en une minute sur le site du fournisseur. Sans clé, la partie IA ne peut pas fonctionner et l'application vous la demande au démarrage.</p>
+					<h3>Une clé IA gratuite</h3>
+					<p>Chez Mistral ou Google Gemini — une seule suffit —, obtenue en une minute sur le site du fournisseur. Sans clé, la partie IA ne peut pas fonctionner et l'application vous la demande au démarrage.</p>
 				</div>
 				<div class="reveal">
 					<h3>Aucune carte graphique</h3>
@@ -423,7 +423,7 @@
 				</details>
 				<details class="faq-item">
 					<summary>Combien ça coûte ?</summary>
-					<p>L'application est gratuite. Il faut une clé chez le fournisseur du modèle (Cerebras), qui propose un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous.</p>
+					<p>L'application est gratuite. Il faut une clé chez un fournisseur du modèle — Mistral ou Google Gemini, une seule suffit — et les deux proposent un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous.</p>
 				</details>
 				<details class="faq-item">
 					<summary>Quels documents lit-il ?</summary>
@@ -431,7 +431,7 @@
 				</details>
 				<details class="faq-item">
 					<summary>Combien de documents supporte-t-il ?</summary>
-					<p>Biblo est développé sur une bibliothèque de 59 volumes et 8 727 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur.</p>
+					<p>Biblo est développé sur une bibliothèque de 70 volumes et plus de 11 000 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur.</p>
 				</details>
 				<details class="faq-item">
 					<summary>Windows dit que l'éditeur est inconnu : est-ce sûr ?</summary>
@@ -439,7 +439,7 @@
 				</details>
 				<details class="faq-item">
 					<summary>Mes documents servent-ils à entraîner une intelligence artificielle ?</summary>
-					<p>Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle ; son traitement relève de ses propres conditions, rappelées dans la politique de confidentialité.</p>
+					<p>Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle. Sur les plans gratuits, les fournisseurs peuvent toutefois utiliser ces textes pour améliorer leurs modèles : Mistral permet de le désactiver dans les réglages de votre compte, le plan gratuit de Google Gemini non. L'application vous l'explique quand vous saisissez la clé.</p>
 				</details>
 				<details class="faq-item">
 					<summary>Puis-je utiliser ma propre clé ?</summary>
