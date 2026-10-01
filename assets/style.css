@@ -321,6 +321,18 @@ section {
 	font-size: clamp(2.25rem, 1.3rem + 4vw, 3.9rem);
 	margin-top: 1rem;
 }
+/* La domanda d'apertura, sopra il titolo: "Fai ricerca e non sai ancora
+   come usare l'intelligenza artificiale...?" */
+.hero-kicker {
+	color: var(--muted);
+	font-size: clamp(1.125rem, 1rem + 0.55vw, 1.375rem);
+	font-weight: 500;
+	max-width: 38rem;
+	margin: 1.25rem auto 0;
+}
+.hero-kicker + h1 {
+	margin-top: 0.5rem;
+}
 .hero .lead {
 	color: var(--muted);
 	font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
@@ -539,6 +551,23 @@ section {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1.25rem;
+}
+.cols-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+@media (max-width: 40rem) {
+	.cols-2 {
+		grid-template-columns: 1fr;
+	}
+}
+/* I due punti fermi sotto "Con Biblo puoi": un aiuto e non un sostituto,
+   gratis con la propria chiave. Stessa scheda, con il colore del marchio. */
+.card.card-accent {
+	border-color: color-mix(in srgb, var(--brand) 35%, var(--line));
+	background: color-mix(in srgb, var(--brand) 6%, var(--surface));
 }
 @media (max-width: 60rem) {
 	.cols-3,

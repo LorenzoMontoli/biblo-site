@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Biblo — votre bibliothèque vous répond</title>
-	<meta name="description" content="Biblo lit vos PDF sur votre propre ordinateur et vous laisse les interroger en langage naturel. Chaque réponse cite le document et la page. Application gratuite pour Windows et Mac." />
+	<meta name="description" content="Biblo est l'assistant IA pour la recherche : il lit vos PDF sur votre ordinateur, répond en citant document et page, et trouve et relie vos sources. Gratuit, avec votre propre clé Google Gemini. Pour Windows et Mac." />
 	<link rel="canonical" href="https://biblo-ai.com/fr/" />
 	<link rel="alternate" hreflang="it" href="https://biblo-ai.com/it/" />
 	<link rel="alternate" hreflang="en" href="https://biblo-ai.com/en/" />
@@ -15,7 +15,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="Biblo" />
 	<meta property="og:title" content="Biblo — votre bibliothèque vous répond" />
-	<meta property="og:description" content="Biblo lit vos PDF sur votre propre ordinateur et vous laisse les interroger en langage naturel. Chaque réponse cite le document et la page. Application gratuite pour Windows et Mac." />
+	<meta property="og:description" content="Biblo est l'assistant IA pour la recherche : il lit vos PDF sur votre ordinateur, répond en citant document et page, et trouve et relie vos sources. Gratuit, avec votre propre clé Google Gemini. Pour Windows et Mac." />
 	<meta property="og:url" content="https://biblo-ai.com/fr/" />
 	<meta property="og:image" content="https://biblo-ai.com/assets/img/og-fr.png" />
 	<meta property="og:image:alt" content="Le chat de Biblo affichant une réponse et ses sources citées" />
@@ -28,7 +28,7 @@
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.0","description":"Biblo lit vos PDF sur votre propre ordinateur et vous laisse les interroger en langage naturel. Chaque réponse cite le document et la page. Application gratuite pour Windows et Mac.","url":"https://biblo-ai.com/fr/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.0","description":"Biblo est l'assistant IA pour la recherche : il lit vos PDF sur votre ordinateur, répond en citant document et page, et trouve et relie vos sources. Gratuit, avec votre propre clé Google Gemini. Pour Windows et Mac.","url":"https://biblo-ai.com/fr/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il une connexion internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour lire et chercher dans les documents : cette partie est entièrement locale. Elle est nécessaire pour le chat et pour l'inspection, car la réponse et les fiches sont produites par un modèle de langage en ligne."}},{"@type":"Question","name":"Combien ça coûte ?","acceptedAnswer":{"@type":"Answer","text":"L'application est gratuite. Pour les fonctions d'IA, il faut une clé chez le fournisseur du modèle, Google Gemini, qui propose un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous."}},{"@type":"Question","name":"Quels documents lit-il ?","acceptedAnswer":{"@type":"Answer","text":"Les PDF, y compris numérisés : si un document n'a pas de couche de texte, Biblo le passe à l'OCR puis le traite comme les autres."}},{"@type":"Question","name":"Combien de documents supporte-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Biblo est développé sur une bibliothèque de 70 volumes et plus de 11 000 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur."}},{"@type":"Question","name":"Windows dit que l'éditeur est inconnu : est-ce sûr ?","acceptedAnswer":{"@type":"Answer","text":"C'est l'avertissement que Windows affiche pour tout programme non signé par un certificat commercial, et Biblo ne l'est pas encore. Vous pouvez comparer l'empreinte SHA-256 du fichier téléchargé avec celle publiée ci-dessus : si elles correspondent, le fichier est exactement celui qui a été publié."}},{"@type":"Question","name":"Mes documents servent-ils à entraîner une intelligence artificielle ?","acceptedAnswer":{"@type":"Answer","text":"Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle. Sur le plan gratuit, Google peut toutefois utiliser ces textes pour améliorer ses modèles, et cela ne peut pas être désactivé. L'application vous l'explique quand vous saisissez la clé."}},{"@type":"Question","name":"Puis-je utiliser ma propre clé ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est le fonctionnement normal : vous saisissez la clé et les requêtes passent par votre compte chez le fournisseur."}},{"@type":"Question","name":"Si je désinstalle, est-ce que je perds mes documents ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les PDF restent là où ils ont toujours été, dans vos dossiers. Sur Mac, on supprime Biblo en le glissant dans la Corbeille ; les données qu'il a produites (index, chats, réglages) restent dans le dossier Bibliothèque › Application Support › Biblo de votre utilisateur : supprimez-le aussi si vous n'en avez plus besoin."}}]}</script>
 </head>
@@ -52,8 +52,9 @@
 		<div class="wrap">
 			<div class="hero-inner">
 				<span class="eyebrow">Application Windows et Mac</span>
-				<h1>Votre bibliothèque vous répond</h1>
-				<p class="lead">Biblo lit les PDF déjà présents sur votre ordinateur, les indexe en local et vous laisse poser vos questions comme à un collègue. Chaque réponse indique de quel document et de quelle page elle provient.</p>
+				<p class="hero-kicker">Vous faites de la recherche et ne savez pas encore comment utiliser l'IA dans votre travail ?</p>
+				<h1>Biblo est votre réponse</h1>
+				<p class="lead">Il lit les PDF déjà présents sur votre ordinateur et vous aide à les interroger, les comparer et les relier. Chaque réponse indique le document et la page d'où elle vient : l'IA vous accompagne, le travail et le jugement restent les vôtres.</p>
 				<div class="hero-cta">
 					<a class="btn btn-primary btn-lg" href="https://github.com/LorenzoMontoli/biblo-releases/releases/latest" data-download-link data-hero-win><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger pour Windows</a>
 					<a class="btn btn-secondary btn-lg" href="https://github.com/LorenzoMontoli/biblo-releases/releases/latest" data-download-mac data-hero-mac><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger pour Mac</a>
@@ -81,6 +82,51 @@
 				<div><b>Sources citées</b><span>Document et page sous chaque réponse</span></div>
 				<div><b>PDF et numérisations</b><span>OCR inclus pour les documents sans texte</span></div>
 				<div><b>5 langues</b><span>Italien, anglais, français, espagnol, allemand</span></div>
+			</div>
+		</div>
+	</section>
+
+	<section id="can">
+		<div class="wrap">
+			<div class="section-head">
+				<h2>Avec Biblo, vous pouvez</h2>
+				<p>Le travail qui prend le plus de temps dans une recherche, fait sur vos propres documents, avec les sources toujours sous les yeux.</p>
+			</div>
+			<div class="cols-3">
+				<div class="card card-hover reveal">
+					<h3>Interroger votre bibliographie</h3>
+					<p>Posez vos questions en langage naturel à vos PDF : la réponse arrive avec les passages cités, document et page.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Trouver les textes sur un sujet</h3>
+					<p>Décrivez un thème et Biblo vous dit quels volumes en parlent vraiment, par ordre de pertinence.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Résumer, analyser, comparer</h3>
+					<p>Résumer un volume, analyser une argumentation, comparer deux textes : chaque tâche a son assistant spécialisé.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Mettre vos sources en relation</h3>
+					<p>Biblo construit les fiches des auteurs, des œuvres et des figures et relie vos documents entre eux, pour voir où ils se croisent.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Reconstituer les citations</h3>
+					<p>Un index unique de tout ce que vos textes citent (œuvres, auteurs, figures) avec le nombre d'occurrences de chacun.</p>
+				</div>
+				<div class="card card-hover reveal">
+					<h3>Travailler aussi sur les numérisations</h3>
+					<p>Les PDF sans texte, comme les volumes numérisés, sont lus par OCR et deviennent interrogeables comme les autres.</p>
+				</div>
+			</div>
+			<div class="cols-2">
+				<div class="card card-accent reveal">
+					<h3>Une aide, pas un remplaçant</h3>
+					<p>Biblo n'écrit pas votre recherche à votre place : il lit, cherche et met les sources en ordre. Chaque réponse peut être vérifiée sur le texte, et si la réponse n'est pas dans vos documents, il vous le dit. Les questions, les choix et les conclusions restent les vôtres.</p>
+				</div>
+				<div class="card card-accent reveal">
+					<h3>Gratuit, et vous gardez le contrôle</h3>
+					<p>Biblo ne coûte rien et n'a pas d'abonnement. Pour l'IA, il utilise votre clé personnelle Google Gemini, gratuite elle aussi : elle se crée en une minute et l'application vous montre comment. Les requêtes passent par votre compte, vos fichiers restent sur votre ordinateur (Google ne reçoit que le passage nécessaire à chaque réponse) et vous pouvez révoquer la clé quand vous voulez.</p>
+				</div>
 			</div>
 		</div>
 	</section>
