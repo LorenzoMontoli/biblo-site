@@ -565,6 +565,18 @@ section {
 }
 /* I due punti fermi sotto "Con Biblo puoi": un aiuto e non un sostituto,
    gratis con la propria chiave. Stessa scheda, con il colore del marchio. */
+/* "Tutta la tua libreria, a ogni domanda": la differenza di fondo rispetto a
+   una chat qualunque, prima delle sei attivita`. */
+.can-library {
+	margin-bottom: 1.5rem;
+}
+.card.can-library h3 {
+	font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+}
+.card.can-library p {
+	font-size: 1.0625rem;
+	max-width: 60rem;
+}
 .card.card-accent {
 	border-color: color-mix(in srgb, var(--brand) 35%, var(--line));
 	background: color-mix(in srgb, var(--brand) 6%, var(--surface));
