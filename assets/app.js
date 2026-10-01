@@ -1,7 +1,8 @@
 /* Biblo — sito. Tre cose sole, tutte facoltative: se una fallisce, la pagina
    resta perfettamente utilizzabile (i valori scritti nell'HTML restano validi).
 
-   1. rifiniture: ombra dell'intestazione, comparsa in scorrimento, lingua ricordata
+   1. rifiniture: ombra dell'intestazione, comparsa in scorrimento, lingua ricordata,
+      pulsante in cima del Mac per chi visita da un Mac (se la pagina offre il Mac)
    2. dati del rilascio letti da GitHub, cosi` versione/peso/link non vanno aggiornati a mano
    3. contatore dei download: mostrato SOLO se l'endpoint risponde davvero */
 
@@ -55,6 +56,38 @@
 		});
 	});
 
+	/* ---------- 1b. chi visita da un Mac ------------------------------ */
+
+	// La pagina e` statica e uguale per tutti, quindi il pulsante principale
+	// e` quello di Windows. Se la pagina offre anche il Mac (il pulsante Mac
+	// esiste solo quando config.json ha `release.mac`) e chi guarda e` su un
+	// Mac, il pulsante in cima e la riga sotto diventano quelli del Mac.
+	function suMac() {
+		try {
+			var uad = navigator.userAgentData;
+			var piattaforma =
+				(uad && uad.platform) || navigator.platform || navigator.userAgent || '';
+			// Safari su iPad si presenta come un Mac ("MacIntel"): lo tradisce il
+			// touch, che sui Mac non c'e`.
+			return /mac/i.test(piattaforma) && !(navigator.maxTouchPoints > 1);
+		} catch (e) {
+			return false;
+		}
+	}
+
+	var pulsanteMac = document.querySelector('[data-download-mac]');
+	if (pulsanteMac && suMac()) {
+		document.querySelectorAll('[data-hero-download]').forEach(function (a) {
+			a.setAttribute('href', pulsanteMac.getAttribute('href'));
+			// da qui in poi lo aggiorna il .dmg, non l'.exe (vedi sotto)
+			a.removeAttribute('data-download-link');
+			a.setAttribute('data-download-mac', '');
+		});
+		document.querySelectorAll('[data-mac-text]').forEach(function (el) {
+			el.textContent = el.getAttribute('data-mac-text');
+		});
+	}
+
 	/* ---------- 2. dati del rilascio da GitHub ------------------------ */
 
 	function fmtSize(bytes) {
@@ -94,36 +127,53 @@
 				return r.json();
 			})
 			.then(function (elenco) {
-				var conInstaller = (elenco || []).filter(function (x) {
-					return (
-						!x.draft &&
-						!x.prerelease &&
-						(x.assets || []).some(function (a) {
-							return /\.exe$/i.test(a.name);
-						})
-					);
+				var EXE = /\.exe$/i;
+				var DMG = /\.dmg$/i;
+				var pubblicate = (elenco || []).filter(function (x) {
+					return !x.draft && !x.prerelease;
 				});
-				if (!conInstaller.length) throw new Error('no installer');
+				function primoAsset(x, re) {
+					return (x.assets || []).filter(function (a) {
+						return re.test(a.name);
+					})[0];
+				}
+				// La piu` recente e` la prima: l'API le restituisce in ordine di
+				// creazione decrescente. Le release non-app (es. il modello) sono
+				// fuori perche' non hanno ne' un .exe ne' un .dmg.
+				var conInstaller = pubblicate.filter(function (x) {
+					return primoAsset(x, EXE);
+				});
+				var conDmg = pubblicate.filter(function (x) {
+					return primoAsset(x, DMG);
+				});
 
-				// Download VERI dell'installer, contati da GitHub su TUTTE le versioni:
-				// nessun server da tenere in piedi e un numero piu` onesto dei clic sul
-				// pulsante (chi clicca e annulla non conta). Un contatore proprio, se
-				// configurato, ha comunque la precedenza — vedi piu` sotto.
+				// Download VERI delle app (installer Windows + dmg del Mac), contati da
+				// GitHub su TUTTE le versioni: nessun server da tenere in piedi e un
+				// numero piu` onesto dei clic sul pulsante (chi clicca e annulla non
+				// conta). Un contatore proprio, se configurato, ha comunque la
+				// precedenza — vedi piu` sotto.
 				var scaricati = 0;
-				conInstaller.forEach(function (x) {
+				pubblicate.forEach(function (x) {
 					(x.assets || []).forEach(function (a) {
-						if (/\.exe$/i.test(a.name)) scaricati += a.download_count || 0;
+						if (EXE.test(a.name) || DMG.test(a.name)) scaricati += a.download_count || 0;
 					});
 				});
 				if (scaricati > 0) showCount(scaricati, 'github');
 
-				// La piu` recente e` la prima: l'API le restituisce in ordine di
-				// creazione decrescente. Le release non-app (es. il modello) sono
-				// gia` fuori perche' non hanno un .exe.
+				// Mac: i pulsanti ci sono solo se la pagina offre il Mac. Senza un
+				// .dmg pubblicato restano sulla pagina dei rilasci.
+				if (conDmg.length) {
+					var dmg = primoAsset(conDmg[0], DMG);
+					setText('[data-release-size-mac]', fmtSize(dmg.size));
+					document.querySelectorAll('[data-download-mac]').forEach(function (a) {
+						a.setAttribute('href', dmg.browser_download_url);
+					});
+				}
+
+				if (!conInstaller.length) throw new Error('no installer');
+
 				var rel = conInstaller[0];
-				var asset = (rel.assets || []).filter(function (a) {
-					return /\.exe$/i.test(a.name);
-				})[0];
+				var asset = primoAsset(rel, EXE);
 				setText('[data-release-version]', String(rel.tag_name || '').replace(/^v/, ''));
 				if (rel.published_at) setText('[data-release-date]', fmtDate(rel.published_at));
 				if (asset) {
@@ -180,7 +230,7 @@
 	}
 
 	// Click sul pulsante di download: segnala l'avvio del download e prosegue.
-	document.querySelectorAll('[data-download-link]').forEach(function (a) {
+	document.querySelectorAll('[data-download-link], [data-download-mac]').forEach(function (a) {
 		a.addEventListener('click', function () {
 			if (!CFG.counter) return;
 			try {

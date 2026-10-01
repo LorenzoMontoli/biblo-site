@@ -801,6 +801,34 @@ section {
 	font-weight: 600;
 	font-variant-numeric: tabular-nums;
 }
+/* Windows e Mac affiancati, ciascuno col suo requisito sotto: compaiono solo
+   quando config.json ha `release.mac` (altrimenti c'e` il pulsante singolo) */
+.dl-choices {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem 1.25rem;
+	margin-top: 2rem;
+}
+.dl-choice {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.625rem;
+	/* larghezza minima comune: pulsanti pari e requisito su due righe, non tre */
+	min-width: min(16rem, 100%);
+}
+.dl-choice > .btn {
+	align-self: stretch;
+}
+/* il requisito va a capo dentro la colonna invece di allargarla */
+.dl-req {
+	width: 0;
+	min-width: 100%;
+	font-size: 0.8125rem;
+	line-height: 1.45;
+	color: var(--faint);
+}
 /* avviso "release non ancora pubblicata": acceso da app.js se GitHub non
    restituisce nessuna release */
 .dl-missing {
@@ -813,6 +841,11 @@ section {
 	margin-top: 1.25rem;
 	font-size: 0.8125rem;
 	color: var(--muted);
+}
+/* il sistema a cui vale l'impronta, quando ce ne sono due (Windows e Mac) */
+.checksum b {
+	color: var(--ink);
+	font-weight: 600;
 }
 .checksum code {
 	display: block;
@@ -828,6 +861,10 @@ section {
 @media (max-width: 40rem) {
 	.download-card {
 		padding: 2rem 1.5rem;
+	}
+	/* su telefono i due pulsanti vanno uno sotto l'altro, larghi uguali */
+	.dl-choice {
+		flex-basis: 100%;
 	}
 }
 

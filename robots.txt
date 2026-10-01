@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lorenzomontoli.github.io/biblo-site/sitemap.xml
+Sitemap: https://biblo-ai.com/sitemap.xml

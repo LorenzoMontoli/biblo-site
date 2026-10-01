@@ -1,6 +1,6 @@
 # biblo-site
 
-Sito di **Biblo**, pubblicato con GitHub Pages: <https://lorenzomontoli.github.io/biblo-site/>
+Sito di **Biblo**, pubblicato con GitHub Pages: <https://biblo-ai.com/>
 
 ⚠️ **Questa cartella è generata.** Non modificarla a mano: le modifiche vanno
 fatte nel repository privato di Biblo (`site/src/`) e pubblicate con
