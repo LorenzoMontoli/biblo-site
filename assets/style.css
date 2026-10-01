@@ -568,7 +568,7 @@ section {
 /* "Tutta la tua libreria, a ogni domanda": la differenza di fondo rispetto a
    una chat qualunque, prima delle sei attivita`. */
 .can-library {
-	margin-bottom: 1.5rem;
+	margin-bottom: 2.25rem;
 }
 .card.can-library h3 {
 	font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
