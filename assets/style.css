@@ -270,6 +270,17 @@ section {
 	background: var(--raised);
 	color: var(--ink);
 }
+/* Collegamento con la misura di un pulsante: in cima, accanto ai due
+   download, un terzo pulsante pieno si confonderebbe con loro. */
+.btn-link {
+	background: transparent;
+	color: var(--brand);
+	padding-inline: 0.75rem;
+}
+.btn-link:hover {
+	color: var(--brand-hi);
+	text-decoration: underline;
+}
 .btn-lg {
 	font-size: 1.0625rem;
 	padding: 1rem 1.75rem;

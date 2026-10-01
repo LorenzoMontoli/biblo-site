@@ -75,17 +75,14 @@
 		}
 	}
 
-	var pulsanteMac = document.querySelector('[data-download-mac]');
-	if (pulsanteMac && suMac()) {
-		document.querySelectorAll('[data-hero-download]').forEach(function (a) {
-			a.setAttribute('href', pulsanteMac.getAttribute('href'));
-			// da qui in poi lo aggiorna il .dmg, non l'.exe (vedi sotto)
-			a.removeAttribute('data-download-link');
-			a.setAttribute('data-download-mac', '');
-		});
-		document.querySelectorAll('[data-mac-text]').forEach(function (el) {
-			el.textContent = el.getAttribute('data-mac-text');
-		});
+	// In cima ci sono i due download (Windows e Mac): per chi visita da un Mac
+	// quello del Mac passa primo ed evidenziato, quello di Windows resta li`.
+	var heroWin = document.querySelector('[data-hero-win]');
+	var heroMac = document.querySelector('[data-hero-mac]');
+	if (heroWin && heroMac && suMac()) {
+		heroWin.classList.replace('btn-primary', 'btn-secondary');
+		heroMac.classList.replace('btn-secondary', 'btn-primary');
+		heroWin.parentNode.insertBefore(heroMac, heroWin);
 	}
 
 	/* ---------- 2. dati del rilascio da GitHub ------------------------ */
