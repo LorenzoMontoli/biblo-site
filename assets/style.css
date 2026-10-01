@@ -881,6 +881,35 @@ section {
 	line-height: 1.45;
 	color: var(--faint);
 }
+/* badge ufficiale del Microsoft Store: alto come il pulsante del Mac accanto
+   (.btn-lg: testo 1.0625rem + padding 2rem + bordo 2px), e mai ritoccato
+   nei colori, come chiedono le regole di Microsoft per il badge */
+.ms-badge {
+	display: inline-flex;
+	border-radius: 0.5rem;
+	transition: transform 0.1s ease, opacity 0.15s ease;
+}
+.ms-badge img {
+	display: block;
+	height: calc(3.0625rem + 2px);
+	width: auto;
+}
+.ms-badge:hover {
+	opacity: 0.9;
+}
+.ms-badge:active {
+	transform: translateY(1px);
+}
+/* l'installer .exe, seconda scelta sotto il badge */
+.dl-alt {
+	font-size: 0.8125rem;
+	color: var(--muted);
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+.dl-alt:hover {
+	color: var(--ink);
+}
 /* avviso "release non ancora pubblicata": acceso da app.js se GitHub non
    restituisce nessuna release */
 .dl-missing {
