@@ -1492,3 +1492,83 @@ html.has-dialog {
 .reminder .nowrap {
 	white-space: nowrap;
 }
+
+/* --- telefoni: l'essenziale nel primo schermo ----------------------------- */
+/* Su un iPhone SE (375x667, meno le barre di Safari restano ~570 punti) i
+   tasti di download finivano sotto la barra e la finestra del promemoria era
+   piu` alta dello schermo (prova dell'utente, 2026-10-02). */
+@media (max-width: 40rem) {
+	.hero {
+		padding-block: 1.5rem 0;
+	}
+	.hero-kicker {
+		font-size: 1.0625rem;
+		margin-top: 0.75rem;
+	}
+	.hero h1 {
+		font-size: 2.125rem;
+	}
+	.hero .lead {
+		font-size: 1rem;
+		line-height: 1.5;
+		margin-top: 0.875rem;
+	}
+	/* i due tasti affiancati, un po' piu` piccoli (anche in tedesco ci stanno) */
+	.hero-cta {
+		--badge-h: 2.375rem;
+		gap: 0.625rem;
+		margin-top: 1.5rem;
+	}
+	.reminder-open-row {
+		margin-top: 0.75rem;
+	}
+	.reminder-open {
+		padding: 0.75rem 1rem;
+		font-size: 0.9375rem;
+	}
+}
+@media (max-width: 40rem), (max-height: 47.5rem) {
+	.reminder-card {
+		padding: 1.25rem 1.25rem 1rem;
+	}
+	.reminder-logo {
+		width: 2.5rem;
+		height: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.reminder h2 {
+		font-size: 1.3125rem;
+	}
+	.reminder-lead {
+		margin-top: 0.5rem;
+		font-size: 0.9375rem;
+	}
+	.reminder-form {
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+	.reminder-form input[type='email'] {
+		padding: 0.75rem 0.875rem;
+	}
+	.reminder-done {
+		margin-top: 1rem;
+		padding: 1rem;
+	}
+	.reminder-or {
+		margin: 1rem 0 0.75rem;
+	}
+	.reminder-site {
+		margin-top: 1rem;
+	}
+}
+/* la riga di stato vuota non occupa spazio (resta nella pagina per gli
+   screen reader, che annunciano quando si riempie) */
+.reminder-status:empty {
+	min-height: 0;
+}
+/* "Vai al sito" sempre in vista, anche quando la finestra scorre */
+.reminder-site {
+	position: sticky;
+	bottom: 0.75rem;
+	box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18);
+}
