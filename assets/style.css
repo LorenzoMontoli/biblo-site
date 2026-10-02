@@ -897,6 +897,23 @@ section {
 .dl-choices {
 	--badge-h: calc(3.195rem + 2px);
 }
+/* Il badge scrive in Segoe UI, che c'e` solo su Windows. Dove manca (Mac,
+   telefoni) il gemello usa Selawik: il sostituto del Segoe UI che Microsoft
+   ha pubblicato con licenza libera (SIL OFL 1.1, assets/fonts/Selawik-OFL.txt),
+   con le stesse misure. I file sono quelli originali, non modificati, e su
+   Windows non si scaricano nemmeno: vince il Segoe UI di sistema. */
+@font-face {
+	font-family: 'Selawik';
+	src: url('fonts/selawk.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Selawik';
+	src: url('fonts/selawksb.woff2') format('woff2');
+	font-weight: 600;
+	font-display: swap;
+}
 .ms-badge,
 .store-twin {
 	display: inline-flex;
@@ -919,8 +936,7 @@ section {
 	transform: translateY(1px);
 }
 /* misure prese dal badge ufficiale, alto 44: fondo #202020 rientrato di 1
-   con un filo nero al 10%, raggio 4.5, icona larga 22 a 10 dal bordo, testo
-   da 38 in poi; riga piccola corpo 11, riga grande corpo 16.5 semibold. La
+   con un filo nero al 10%, raggio 4.5, icona larga 22 a 10 dal bordo. La
    larghezza la mette il template, uguale al badge della stessa lingua. */
 .store-twin {
 	box-sizing: border-box;
@@ -932,7 +948,7 @@ section {
 	border: calc(var(--badge-h) / 44) solid rgba(0, 0, 0, 0.1);
 	border-radius: calc(var(--badge-h) * 4.5 / 44);
 	color: #fff;
-	font-family: var(--font-ui);
+	font-family: 'Segoe UI', 'Selawik', var(--font-ui);
 	text-align: start;
 	white-space: nowrap;
 }
@@ -944,21 +960,42 @@ section {
 	flex: none;
 	width: calc(var(--badge-h) / 2);
 	height: calc(var(--badge-h) / 2);
-	margin-right: calc(var(--badge-h) * 6.25 / 44);
+	margin-right: calc(var(--badge-h) * 6.05 / 44);
 }
+/* Il testo e` in Segoe UI come quello del badge, e alle stesse misure:
+   ricavate dal file SVG (le sue scritte sono tracciati) e controllate al
+   pixel, ingrandite 10 volte, rendendo il gemello con le parole del badge.
+   Riga piccola Regular corpo 10.03, riga grande Semibold corpo 16.07; gli
+   spostamenti mettono le righe dove stanno quelle del badge. */
 .store-twin-text {
 	display: flex;
 	flex-direction: column;
+	font-size: calc(var(--badge-h) * 10.03 / 44);
 	line-height: 1.12;
+	position: relative;
+	top: calc(var(--badge-h) * -0.65 / 44);
 }
 .store-twin-text small {
-	font-size: calc(var(--badge-h) * 11 / 44);
+	font-size: 1em;
 	font-weight: 400;
+	margin-left: calc(var(--badge-h) * -0.15 / 44);
 }
 .store-twin-text b {
-	font-size: calc(var(--badge-h) * 16.5 / 44);
+	font-size: calc(var(--badge-h) * 16.07 / 44);
 	font-weight: 600;
 	line-height: 1;
+	margin-top: calc(var(--badge-h) * 1.1 / 44);
+}
+/* tedesco: il nome in alto come nel badge ("Vom Microsoft Store" /
+   "herunterladen"), con lo spazio fra le due parole largo quanto il suo */
+.store-twin-text--alto {
+	top: calc(var(--badge-h) * -1.075 / 44);
+}
+.store-twin-text--alto > span {
+	word-spacing: calc(var(--badge-h) * -0.8 / 44);
+}
+.store-twin-text--alto > small {
+	margin-top: calc(var(--badge-h) * 1.65 / 44);
 }
 /* l'installer .exe, seconda scelta sotto il badge */
 .dl-alt {
