@@ -353,6 +353,13 @@ section {
 	font-size: 0.875rem;
 	margin-top: 1rem;
 }
+/* "Guarda com'e` fatto" sotto i due download, al centro come loro */
+.hero-more {
+	margin-top: 0.5rem;
+}
+.hero-more + .hero-sub {
+	margin-top: 0.25rem;
+}
 
 /* contatore download */
 .counter {
@@ -881,24 +888,77 @@ section {
 	line-height: 1.45;
 	color: var(--faint);
 }
-/* badge ufficiale del Microsoft Store: alto come il pulsante del Mac accanto
-   (.btn-lg: testo 1.0625rem + padding 2rem + bordo 2px), e mai ritoccato
-   nei colori, come chiedono le regole di Microsoft per il badge */
-.ms-badge {
+/* badge ufficiale del Microsoft Store e, accanto, il suo gemello per il Mac.
+   Il badge non si ritocca (colori, proporzioni: lo vietano le regole di
+   Microsoft), quindi e` il tasto del Mac a copiarne la forma. --badge-h e`
+   l'altezza dei due, la stessa di .btn-lg (icona 1.125em di 1.0625rem +
+   padding 2rem + bordo 2px): font e margini del gemello si ricavano da li`. */
+.hero-cta,
+.dl-choices {
+	--badge-h: calc(3.195rem + 2px);
+}
+.ms-badge,
+.store-twin {
 	display: inline-flex;
-	border-radius: 0.5rem;
 	transition: transform 0.1s ease, opacity 0.15s ease;
+}
+.ms-badge {
+	border-radius: 0.5rem;
 }
 .ms-badge img {
 	display: block;
-	height: calc(3.0625rem + 2px);
+	height: var(--badge-h);
 	width: auto;
 }
-.ms-badge:hover {
+.ms-badge:hover,
+.store-twin:hover {
 	opacity: 0.9;
 }
-.ms-badge:active {
+.ms-badge:active,
+.store-twin:active {
 	transform: translateY(1px);
+}
+/* misure prese dal badge ufficiale, alto 44: fondo #202020 rientrato di 1
+   con un filo nero al 10%, raggio 4.5, icona larga 22 a 10 dal bordo, testo
+   da 38 in poi; riga piccola corpo 11, riga grande corpo 16.5 semibold. La
+   larghezza la mette il template, uguale al badge della stessa lingua. */
+.store-twin {
+	box-sizing: border-box;
+	height: var(--badge-h);
+	align-items: center;
+	padding-left: calc(var(--badge-h) * 9 / 44);
+	background: #202020;
+	background-clip: padding-box;
+	border: calc(var(--badge-h) / 44) solid rgba(0, 0, 0, 0.1);
+	border-radius: calc(var(--badge-h) * 4.5 / 44);
+	color: #fff;
+	font-family: var(--font-ui);
+	text-align: start;
+	white-space: nowrap;
+}
+.store-twin:hover {
+	color: #fff;
+	text-decoration: none;
+}
+.store-twin svg {
+	flex: none;
+	width: calc(var(--badge-h) / 2);
+	height: calc(var(--badge-h) / 2);
+	margin-right: calc(var(--badge-h) * 6.25 / 44);
+}
+.store-twin-text {
+	display: flex;
+	flex-direction: column;
+	line-height: 1.12;
+}
+.store-twin-text small {
+	font-size: calc(var(--badge-h) * 11 / 44);
+	font-weight: 400;
+}
+.store-twin-text b {
+	font-size: calc(var(--badge-h) * 16.5 / 44);
+	font-weight: 600;
+	line-height: 1;
 }
 /* l'installer .exe, seconda scelta sotto il badge */
 .dl-alt {
