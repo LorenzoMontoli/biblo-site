@@ -24,7 +24,7 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=c33d466d8d" />
+	<link rel="stylesheet" href="../assets/style.css?v=3937d5db60" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
@@ -59,6 +59,7 @@
 					<a class="ms-badge" href="https://apps.microsoft.com/detail/9PB0NT66JGQ5?referrer=appbadge&amp;mode=direct" data-hero-win><img src="../assets/img/ms-store-fr.svg" alt="Télécharger depuis le Microsoft Store" width="161" height="44" /></a>
 					<a class="store-twin" href="https://github.com/LorenzoMontoli/biblo-releases/releases/latest" style="width:calc(var(--badge-h) * 3.6591)" aria-label="Télécharger pour Mac" data-download-mac data-hero-mac><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="scr-hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#0284c7"/></linearGradient></defs><rect x="3.5" y="3.5" width="17" height="12.5" rx="1.8" fill="#f3f3f3"/><rect x="5" y="5" width="14" height="9.5" rx="0.8" fill="url(#scr-hero)"/><path d="M1 17h22l-1.4 2.3a1.5 1.5 0 0 1-1.28.7H3.68a1.5 1.5 0 0 1-1.28-.7z" fill="#f3f3f3"/><path d="M9.5 17h5l-.5.9h-4z" fill="#bdbdbd"/></svg><span class="store-twin-text"><small>Télécharger pour</small><b>Mac</b></span></a>
 				</div>
+				<p class="reminder-open-row"><button type="button" class="btn btn-lg reminder-open" data-reminder-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Sur votre téléphone ? Recevez le lien par e-mail</button></p>
 				<p class="hero-more"><a class="btn btn-link" href="#features">Voir à quoi ça ressemble</a></p>
 				<p class="hero-sub">Gratuit · Windows 10 et 11 en 64 bits · Mac avec puce Apple, macOS 15 ou version ultérieure</p>
 			</div>
@@ -422,6 +423,7 @@
 						<span class="dl-req">Mac avec puce Apple (M1 ou plus récente) · macOS 15 ou version ultérieure</span>
 					</div>
 				</div>
+				<p class="reminder-open-row"><button type="button" class="btn btn-lg reminder-open" data-reminder-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Sur votre téléphone ? Recevez le lien par e-mail</button></p>
 				<p class="dl-missing" data-release-missing hidden>Le fichier n'est pas encore publié : le bouton mène à la page des versions.</p>
 				<dl class="download-meta">
 					<div><dt>Version</dt><dd data-release-version>1.2.0</dd></div>
@@ -511,6 +513,36 @@
 		</div>
 	</section>
 
+	<dialog class="reminder" id="promemoria" aria-labelledby="reminder-title">
+		<div class="reminder-card">
+			<button type="button" class="reminder-x" data-reminder-close aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+			<img class="reminder-logo" src="../assets/img/logo.png" alt="" width="56" height="56" />
+			<h2 id="reminder-title" tabindex="-1" autofocus>Biblo est une application pour ordinateur</h2>
+			<p class="reminder-lead">Elle s'installe sur Windows et Mac, pas sur un téléphone. Laissez-nous votre e-mail : nous vous envoyons le lien de téléchargement, pour le retrouver une fois devant votre ordinateur.</p>
+			<form class="reminder-form" data-reminder-form novalidate>
+				<label class="reminder-label" for="reminder-email">Votre e-mail</label>
+				<input id="reminder-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" required placeholder="nom@exemple.fr" />
+				<div class="reminder-hp" aria-hidden="true"><input type="text" name="sito" tabindex="-1" autocomplete="off" /></div>
+				<div class="reminder-captcha" data-reminder-captcha></div>
+				<button type="submit" class="btn btn-primary btn-lg reminder-send" data-reminder-send><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Envoyez-moi le rappel</button>
+				<p class="reminder-status" data-reminder-status role="status" aria-live="polite"></p>
+				<p class="reminder-note">Nous utilisons votre adresse uniquement pour cet e-mail : nous ne la conservons pas et ne vous écrirons plus. <a href="./privacy.html#promemoria">Confidentialité</a></p>
+			</form>
+			<div class="reminder-done" data-reminder-done hidden>
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>
+				<h3>C'est fait, consultez votre messagerie</h3>
+				<p>Nous vous avons écrit depuis <span class="nowrap">ciao@biblo-ai.com</span>. Si vous ne le trouvez pas d'ici quelques minutes, regardez dans les courriers indésirables.</p>
+			</div>
+			<p class="reminder-or" data-reminder-or><span>ou</span></p>
+			<div class="reminder-share">
+				<button type="button" class="btn btn-secondary btn-lg" data-reminder-share>Partager le lien</button>
+				<p class="reminder-hint" data-reminder-share-status>Envoyez-le-vous sur WhatsApp, dans vos notes ou où vous voulez : rien ne passe par nous.</p>
+			</div>
+			<button type="button" class="btn btn-lg reminder-site" data-reminder-close>Aller sur le site →</button>
+		</div>
+	</dialog>
+	<script>window.BIBLO_REMINDER = {"endpoint":"https://biblo-promemoria.lorenzomontoli.workers.dev/promemoria","sitekey":"0x4AAAAAAFL1Ls5s4DDnB06g","url":"https://biblo-ai.com/fr/","msgs":{"sending":"Envoi en cours…","wait_captcha":"Un instant, nous vérifions que vous n'êtes pas un robot…","err_email":"Vérifiez l'adresse : elle ne semble pas valide.","err_captcha":"Nous n'avons pas pu vérifier que vous n'êtes pas un robot. Réessayez, ou partagez le lien ci-dessous.","err_busy":"Trop de demandes en peu de temps : réessayez dans une minute.","err_generic":"L'e-mail n'a pas pu être envoyé. Réessayez plus tard, ou partagez le lien ci-dessous.","share_text":"Biblo, l'assistant de recherche pour vos PDF, à télécharger sur votre ordinateur","copied":"Lien copié : collez-le où vous voulez."}};</script>
+
 </main>
 
 <footer class="site-footer">
@@ -539,6 +571,6 @@
 		</div>
 	</div>
 </footer>
-<script src="../assets/app.js?v=f1cebc9faa" defer></script>
+<script src="../assets/app.js?v=43460355c1" defer></script>
 </body>
 </html>

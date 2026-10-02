@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Biblo</title>
+	<meta name="robots" content="noindex" />
+	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+	<link rel="stylesheet" href="../assets/style.css?v=3937d5db60" />
+	<script>
+		(function () {
+			var langs = ["it","en","fr","es","de"];
+			var saved = null;
+			try { saved = localStorage.getItem('biblo_site_lang'); } catch (e) {}
+			var want = saved && langs.indexOf(saved) >= 0 ? saved : null;
+			if (!want) {
+				var nav = (navigator.languages || [navigator.language || '']).map(function (l) {
+					return String(l).slice(0, 2).toLowerCase();
+				});
+				for (var i = 0; i < nav.length && !want; i++) {
+					if (langs.indexOf(nav[i]) >= 0) want = nav[i];
+				}
+			}
+			location.replace('../' + (want || 'en') + '/' + (function () {
+				var ua = navigator.userAgent || '';
+				var uad = navigator.userAgentData || null;
+				var piatt = (uad && uad.platform) || navigator.platform || '';
+				var ipad = /Mac/i.test(piatt + ' ' + ua) && navigator.maxTouchPoints > 1;
+				var mobile = (uad && uad.mobile) || ipad || /Android|iPhone|iPad|iPod|Mobile|Silk|Kindle|CrOS/i.test(ua);
+				return !mobile && /Win|Mac/i.test(piatt + ' ' + ua) ? '#download' : '?promemoria';
+			})());
+		})();
+	</script>
+</head>
+<body>
+	<main class="wrap" style="padding-block:6rem;text-align:center">
+		<h1 style="font-family:var(--font-display)">Biblo</h1>
+		<p style="color:var(--muted);margin-top:1rem">Scegli la lingua · Choose your language</p>
+		<ul style="list-style:none;padding:0;margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap"><li><a href="../it/?promemoria" hreflang="it" lang="it">Italiano</a></li><li><a href="../en/?promemoria" hreflang="en" lang="en">English</a></li><li><a href="../fr/?promemoria" hreflang="fr" lang="fr">Français</a></li><li><a href="../es/?promemoria" hreflang="es" lang="es">Español</a></li><li><a href="../de/?promemoria" hreflang="de" lang="de">Deutsch</a></li></ul>
+	</main>
+</body>
+</html>

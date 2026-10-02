@@ -24,7 +24,7 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=c33d466d8d" />
+	<link rel="stylesheet" href="../assets/style.css?v=3937d5db60" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
@@ -51,7 +51,7 @@
 		<p class="updated">Dernière mise à jour: 30 septembre 2026</p>
 		<h2>En deux lignes</h2>
 			<p>Biblo fonctionne entièrement sur votre ordinateur. Nous n'avons aucun serveur : ce que vous faites dans l'application n'est ni collecté, ni transmis, ni conservé, ni visible par nous. Aucun traçage, aucune statistique d'usage, aucun compte.</p>
-			<p>Cela vaut aussi pour ce site : aucun cookie de profilage, aucun outil d'analyse tiers. Pour afficher la version et le nombre de téléchargements, il interroge l'API publique de GitHub directement depuis votre navigateur.</p>
+			<p>Cela vaut aussi pour ce site : aucun cookie de profilage, aucun outil d'analyse tiers. Pour afficher la version et le nombre de téléchargements, il interroge l'API publique de GitHub directement depuis votre navigateur. La seule exception est le rappel par e-mail, si vous choisissez de le demander : voir le point 5.</p>
 			
 
 			<h2>1. Qui fournit l'application</h2>
@@ -72,11 +72,18 @@
 			<p>L'application contacte aussi <b>GitHub</b>, et ces connexions ne transportent aucun contenu de vos documents : pour vérifier sur son API publique s'il existe une version plus récente ; pour télécharger une mise à jour, lorsque vous l'acceptez, depuis le dépôt public <code>LorenzoMontoli/biblo-releases</code> ; et pour y télécharger le modèle d'embedding s'il n'est pas déjà sur votre ordinateur — dans les versions actuelles le modèle est inclus dans l'installateur, ce téléchargement n'a donc normalement pas lieu. Ces requêtes ne portent aucun identifiant au-delà de votre adresse IP, qui parvient à GitHub — pas à nous.</p>
 			
 
-			<h2>5. Le RGPD en bref</h2>
+			<h2 id="promemoria">5. Le rappel par e-mail (site uniquement)</h2>
+			<p>Sur le site, vous pouvez nous demander de vous envoyer par e-mail le lien pour télécharger Biblo, par exemple si vous y arrivez depuis votre téléphone. C'est le seul endroit où nous recueillons une donnée vous concernant : l'adresse e-mail que vous saisissez, avec la langue de la page.</p>
+			<p>Nous l'utilisons <b>uniquement pour vous envoyer cet unique e-mail</b>, que vous avez demandé (art. 6.1.b du RGPD). Nous ne l'enregistrons dans aucune liste, ne l'utilisons pour rien d'autre et ne vous écrirons plus.</p>
+			<p>Pour l'envoyer, nous faisons appel à des services qui traitent l'adresse pour notre compte : <b>Cloudflare</b>, qui reçoit la demande (Cloudflare Workers) et vérifie qu'elle ne provient pas d'un programme automatique (Cloudflare Turnstile, chargé uniquement à l'ouverture de la fenêtre du rappel), et <b>Resend</b>, qui délivre l'e-mail et en conserve les données d'envoi (adresse, date, résultat) pendant 30 jours. Ce sont des entreprises établies aux États-Unis : les données peuvent aussi être traitées hors de l'Union européenne, avec les garanties prévues par le RGPD.</p>
+			<p>Pour que personne ne puisse utiliser le formulaire pour inonder la boîte d'autrui, chaque adresse reçoit au maximum un rappel par jour : pour la reconnaître, Resend conserve pendant 24 heures une empreinte de l'adresse (un code qui en est dérivé), puis l'efface. Pour toute question sur ces données, écrivez à <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>.</p>
 			
-			<ul><li>Si vous utilisez Biblo à des fins purement personnelles ou domestiques, le RGPD ne s'applique pas à cet usage (art. 2.2.c).</li><li>Si vous l’utilisez professionnellement sur des documents contenant les données d’autres personnes, le responsable de ce traitement, c’est <b>vous</b>, y compris pour ce que vous envoyez au fournisseur de modèle.</li><li>Du contenu de vos documents, questions et réponses nous ne sommes ni responsable de traitement ni sous-traitant, pour une raison simple : nous ne le recevons jamais.</li><li>Les seules données personnelles que nous traitons sont les courriels que vous choisissez de nous envoyer pour de l’aide, utilisés uniquement pour vous répondre.</li></ul>
 
-			<h2>6. Vos droits, les modifications, les contacts</h2>
+			<h2>6. Le RGPD en bref</h2>
+			
+			<ul><li>Si vous utilisez Biblo à des fins purement personnelles ou domestiques, le RGPD ne s'applique pas à cet usage (art. 2.2.c).</li><li>Si vous l’utilisez professionnellement sur des documents contenant les données d’autres personnes, le responsable de ce traitement, c’est <b>vous</b>, y compris pour ce que vous envoyez au fournisseur de modèle.</li><li>Du contenu de vos documents, questions et réponses nous ne sommes ni responsable de traitement ni sous-traitant, pour une raison simple : nous ne le recevons jamais.</li><li>Les seules données personnelles que nous traitons sont les courriels que vous choisissez de nous envoyer pour de l’aide, utilisés uniquement pour vous répondre, ainsi que l'adresse à laquelle vous demandez le rappel depuis le site, utilisée uniquement pour l'envoyer (point 5).</li></ul>
+
+			<h2>7. Vos droits, les modifications, les contacts</h2>
 			<p>Vos données restent sur votre appareil : vous pouvez donc les consulter, les corriger ou les supprimer vous-même à tout moment. Pour la correspondance d'assistance ou pour toute question de confidentialité, écrivez à <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a> ; vous pouvez aussi introduire une réclamation auprès d'une autorité de contrôle (en France, la CNIL).</p>
 			<p>Si cette politique change de manière substantielle, nous augmentons son numéro de version et l'application vous demande de la relire et de l'accepter.</p>
 			

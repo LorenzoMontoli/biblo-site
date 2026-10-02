@@ -1,10 +1,11 @@
-/* Biblo — sito. Tre cose sole, tutte facoltative: se una fallisce, la pagina
-   resta perfettamente utilizzabile (i valori scritti nell'HTML restano validi).
+/* Biblo — sito. Quattro cose sole, tutte facoltative: se una fallisce, la
+   pagina resta perfettamente utilizzabile (i valori scritti nell'HTML restano validi).
 
    1. rifiniture: ombra dell'intestazione, comparsa in scorrimento, lingua ricordata,
       pulsante in cima del Mac per chi visita da un Mac (se la pagina offre il Mac)
    2. dati del rilascio letti da GitHub, cosi` versione/peso/link non vanno aggiornati a mano
-   3. contatore dei download: mostrato SOLO se l'endpoint risponde davvero */
+   3. contatore dei download: mostrato SOLO se l'endpoint risponde davvero
+   4. promemoria via email per chi arriva dal telefono (finestra #promemoria) */
 
 (function () {
 	'use strict';
@@ -81,6 +82,13 @@
 	var heroMac = document.querySelector('[data-hero-mac]');
 	if (heroWin && heroMac && suMac()) {
 		heroWin.parentNode.insertBefore(heroMac, heroWin);
+	}
+	// Lo stesso nella sezione Scarica, dove chi arriva dal QR della locandina
+	// con un Mac atterra direttamente (/promemoria -> #download).
+	var sceltaMac = document.querySelector('.dl-choices [data-download-mac]');
+	sceltaMac = sceltaMac && sceltaMac.closest('.dl-choice');
+	if (sceltaMac && sceltaMac.previousElementSibling && suMac()) {
+		sceltaMac.parentNode.insertBefore(sceltaMac, sceltaMac.parentNode.firstElementChild);
 	}
 
 	/* ---------- 2. dati del rilascio da GitHub ------------------------ */
@@ -239,4 +247,236 @@
 			}
 		});
 	});
+
+	/* ---------- 4. promemoria via email (dal telefono) ----------------- */
+
+	// Biblo e` un'app per computer: chi arriva dal telefono (il QR della
+	// locandina porta a /promemoria, che apre la pagina con `?promemoria`)
+	// si fa mandare il link per email, oppure se lo condivide da solo. L'email
+	// la spedisce il Worker di Cloudflare (site/worker): qui si manda solo
+	// indirizzo, lingua della pagina e il gettone di Turnstile, che dice al
+	// Worker che a chiedere e` una persona. Turnstile si carica solo quando la
+	// finestra si apre, mai per chi visita e basta.
+	var R = window.BIBLO_REMINDER;
+	var dlg = document.getElementById('promemoria');
+	if (R && dlg) {
+		var form = dlg.querySelector('[data-reminder-form]');
+		var input = dlg.querySelector('#reminder-email');
+		var trappola = dlg.querySelector('input[name="sito"]');
+		var stato = dlg.querySelector('[data-reminder-status]');
+		var invia = dlg.querySelector('[data-reminder-send]');
+		var fatto = dlg.querySelector('[data-reminder-done]');
+		var box = dlg.querySelector('[data-reminder-captcha]');
+		var conEmail = !!(R.endpoint && R.sitekey && form);
+		var widget = null;
+		var caricando = false;
+		var guasto = false; // Turnstile non si e` caricato (rete, blocchi)
+		var gettone = '';
+		var inAttesa = false;
+		// Finche' il Worker non c'e` (config senza indirizzo o chiave di
+		// Turnstile) la finestra offre solo la condivisione.
+		if (!conEmail) {
+			if (form) form.hidden = true;
+			var oppure = dlg.querySelector('[data-reminder-or]');
+			if (oppure) oppure.hidden = true;
+		}
+
+		var scrivi = function (testo, tipo) {
+			if (!stato) return;
+			stato.textContent = testo || '';
+			stato.className = 'reminder-status' + (tipo ? ' is-' + tipo : '');
+		};
+
+		var caricaTurnstile = function () {
+			if (!conEmail || widget !== null || caricando) return;
+			caricando = true;
+			window.__bibloTurnstile = function () {
+				try {
+					widget = window.turnstile.render(box, {
+						sitekey: R.sitekey,
+						language: LANG,
+						action: 'promemoria',
+						appearance: 'interaction-only',
+						callback: function (t) {
+							gettone = t;
+							if (inAttesa) spedisci();
+						},
+						'expired-callback': function () {
+							gettone = '';
+						},
+						'error-callback': function () {
+							gettone = '';
+							if (inAttesa) {
+								inAttesa = false;
+								scrivi(R.msgs.err_captcha, 'error');
+							}
+						}
+					});
+				} catch (e) {
+					guasto = true;
+				}
+			};
+			var s = document.createElement('script');
+			s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=__bibloTurnstile';
+			s.async = true;
+			// Se non si carica lo si dice solo quando si prova a spedire, e la
+			// condivisione qui sotto funziona comunque.
+			s.onerror = function () {
+				caricando = false;
+				guasto = true;
+				if (inAttesa) {
+					inAttesa = false;
+					scrivi(R.msgs.err_captcha, 'error');
+				}
+			};
+			document.head.appendChild(s);
+		};
+
+		var apri = function () {
+			if (typeof dlg.showModal === 'function') {
+				if (!dlg.open) dlg.showModal();
+			} else {
+				dlg.setAttribute('open', '');
+			}
+			document.documentElement.classList.add('has-dialog');
+			caricaTurnstile();
+		};
+		var chiudi = function () {
+			if (typeof dlg.close === 'function') {
+				if (dlg.open) dlg.close();
+			} else {
+				dlg.removeAttribute('open');
+			}
+			document.documentElement.classList.remove('has-dialog');
+		};
+		dlg.addEventListener('close', function () {
+			document.documentElement.classList.remove('has-dialog');
+		});
+		// un tocco fuori dalla scheda (sullo sfondo) chiude
+		dlg.addEventListener('click', function (e) {
+			if (e.target === dlg) chiudi();
+		});
+		document.querySelectorAll('[data-reminder-open]').forEach(function (b) {
+			b.addEventListener('click', apri);
+		});
+		dlg.querySelectorAll('[data-reminder-close]').forEach(function (b) {
+			b.addEventListener('click', chiudi);
+		});
+
+		var spedisci = function () {
+			var email = (input.value || '').trim();
+			if (!email || !input.checkValidity()) {
+				inAttesa = false;
+				scrivi(R.msgs.err_email, 'error');
+				input.focus();
+				return;
+			}
+			// il gettone arriva da solo poco dopo l'apertura: se non c'e` ancora,
+			// si aspetta lui e si spedisce appena arriva
+			if (!gettone) {
+				if (guasto) {
+					// riprova a caricarlo: magari la rete e` tornata
+					guasto = false;
+					widget = null;
+				}
+				inAttesa = true;
+				scrivi(R.msgs.wait_captcha);
+				caricaTurnstile();
+				return;
+			}
+			inAttesa = false;
+			var t = gettone;
+			gettone = '';
+			invia.disabled = true;
+			scrivi(R.msgs.sending);
+			fetch(R.endpoint, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email: email, lang: LANG, token: t, sito: trappola ? trappola.value : '' })
+			})
+				.then(function (r) {
+					return r.json().catch(function () {
+						return {};
+					});
+				})
+				.then(function (j) {
+					if (j && j.ok) {
+						form.hidden = true;
+						fatto.hidden = false;
+						scrivi('');
+						return;
+					}
+					var e = j && j.error;
+					scrivi(
+						e === 'invalid_email'
+							? R.msgs.err_email
+							: e === 'captcha'
+								? R.msgs.err_captcha
+								: e === 'rate_limited'
+									? R.msgs.err_busy
+									: R.msgs.err_generic,
+						'error'
+					);
+				})
+				.catch(function () {
+					scrivi(R.msgs.err_generic, 'error');
+				})
+				.then(function () {
+					invia.disabled = false;
+					// un gettone vale una volta sola: se ne chiede subito un altro
+					if (widget !== null && window.turnstile) {
+						try {
+							window.turnstile.reset(widget);
+						} catch (e) {
+							/* niente */
+						}
+					}
+				});
+		};
+		if (form) {
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				spedisci();
+			});
+		}
+
+		// Condividere da soli: il foglio di condivisione del telefono, o
+		// altrimenti il link copiato negli appunti. Non passa niente da noi.
+		var condividi = dlg.querySelector('[data-reminder-share]');
+		var esitoCond = dlg.querySelector('[data-reminder-share-status]');
+		if (condividi) {
+			condividi.addEventListener('click', function () {
+				if (navigator.share) {
+					navigator.share({ title: 'Biblo', text: R.msgs.share_text, url: R.url }).catch(function () {
+						/* annullata da chi condivide: va bene cosi` */
+					});
+					return;
+				}
+				var copiato = function () {
+					if (esitoCond) {
+						esitoCond.textContent = R.msgs.copied;
+						esitoCond.classList.add('is-ok');
+					}
+				};
+				if (navigator.clipboard && navigator.clipboard.writeText) {
+					navigator.clipboard.writeText(R.url).then(copiato, function () {
+						if (esitoCond) esitoCond.textContent = R.url;
+					});
+				} else if (esitoCond) {
+					esitoCond.textContent = R.url;
+				}
+			});
+		}
+
+		// Dal QR: la pagina si apre con `?promemoria` e la finestra gia` aperta;
+		// il parametro poi sparisce, cosi` un ricaricamento non la riapre.
+		if (/[?&]promemoria(=|&|$)/.test(location.search)) {
+			apri();
+			try {
+				history.replaceState(null, '', location.pathname + location.hash);
+			} catch (e) {
+				/* niente: resta il parametro, pazienza */
+			}
+		}
+	}
 })();

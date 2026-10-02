@@ -24,7 +24,7 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=c33d466d8d" />
+	<link rel="stylesheet" href="../assets/style.css?v=3937d5db60" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
@@ -51,7 +51,7 @@
 		<p class="updated">Last updated: September 30, 2026</p>
 		<h2>In two lines</h2>
 			<p>Biblo runs entirely on your computer. We run no servers: what you do in the app is not collected, not sent to us, not stored by us and not visible to us. No tracking, no usage statistics, no account.</p>
-			<p>The same goes for this website: no profiling cookies, no third-party analytics. To show the current version and the download count, it queries GitHub's public API straight from your browser.</p>
+			<p>The same goes for this website: no profiling cookies, no third-party analytics. To show the current version and the download count, it queries GitHub's public API straight from your browser. The only exception is the email reminder, if you choose to request it: see section 5.</p>
 			
 
 			<h2>1. Who provides the app</h2>
@@ -72,11 +72,18 @@
 			<p>The app also contacts <b>GitHub</b>, and these connections carry no content from your documents: to check its public API for a newer version; to download an update, when you accept one, from the public repository <code>LorenzoMontoli/biblo-releases</code>; and to download the embedding model from there if it is not already on your computer — in the current versions the model ships inside the installer, so this download normally does not happen. These requests carry no identifier beyond your IP address, which reaches GitHub — not us.</p>
 			
 
-			<h2>5. The GDPR in short</h2>
+			<h2 id="promemoria">5. The email reminder (website only)</h2>
+			<p>On the website you can ask us to email you the link to download Biblo, for example if you arrive there from your phone. It's the only place where we collect any data of yours: the email address you type, together with the language of the page.</p>
+			<p>We use it <b>only to send you that single email</b>, which you asked for (Art. 6(1)(b) GDPR). We don't save it in any list, don't use it for anything else and won't write to you again.</p>
+			<p>To send it we rely on services that process the address on our behalf: <b>Cloudflare</b>, which receives the request (Cloudflare Workers) and checks that it doesn't come from an automated program (Cloudflare Turnstile, loaded only when you open the reminder window), and <b>Resend</b>, which delivers the email and keeps its delivery data (address, date, outcome) for 30 days. They are companies based in the United States: the data may also be processed outside the European Union, with the safeguards required by the GDPR.</p>
+			<p>So that nobody can use the form to flood someone else's inbox, each address receives at most one reminder a day: to recognise it, Resend keeps a fingerprint of the address (a code derived from it) for 24 hours, then deletes it. For any question about this data, write to <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>.</p>
 			
-			<ul><li>If you use Biblo for purely personal or household purposes, the GDPR does not apply to that use at all (Art. 2(2)(c)).</li><li>If you use it professionally on documents containing other people’s data, <b>you</b> are the controller of that processing, including whatever you send to the model provider.</li><li>We are neither controller nor processor for the content of your documents, questions and answers, for a simple reason: we never receive any of it.</li><li>The only personal data we process is the email you choose to send us for support, used solely to reply to you.</li></ul>
 
-			<h2>6. Your rights, changes, contact</h2>
+			<h2>6. The GDPR in short</h2>
+			
+			<ul><li>If you use Biblo for purely personal or household purposes, the GDPR does not apply to that use at all (Art. 2(2)(c)).</li><li>If you use it professionally on documents containing other people’s data, <b>you</b> are the controller of that processing, including whatever you send to the model provider.</li><li>We are neither controller nor processor for the content of your documents, questions and answers, for a simple reason: we never receive any of it.</li><li>The only personal data we process is the email you choose to send us for support, used solely to reply to you, and the address you ask the website reminder to be sent to, used only to send it (section 5).</li></ul>
+
+			<h2>7. Your rights, changes, contact</h2>
 			<p>Your data stays on your device, so you can consult, correct or delete it yourself at any time. For support correspondence, or for any privacy question, write to <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>; you can also lodge a complaint with a supervisory authority (in Italy, the Garante per la protezione dei dati personali).</p>
 			<p>If this policy changes in a meaningful way, we increase its version number and the app asks you to read and accept it again.</p>
 			

@@ -24,7 +24,7 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=c33d466d8d" />
+	<link rel="stylesheet" href="../assets/style.css?v=3937d5db60" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
@@ -51,7 +51,7 @@
 		<p class="updated">Zuletzt aktualisiert: 30. September 2026</p>
 		<h2>In zwei Zeilen</h2>
 			<p>Biblo läuft vollständig auf Ihrem Computer. Wir betreiben keine Server: Was Sie in der App tun, wird nicht erfasst, nicht an uns übertragen, von uns nicht gespeichert und nicht eingesehen. Kein Tracking, keine Nutzungsstatistiken, kein Konto.</p>
-			<p>Das gilt auch für diese Website: keine Profiling-Cookies, keine Analysewerkzeuge Dritter. Um Version und Downloadzahl anzuzeigen, fragt sie die öffentliche GitHub-API direkt aus Ihrem Browser ab.</p>
+			<p>Das gilt auch für diese Website: keine Profiling-Cookies, keine Analysewerkzeuge Dritter. Um Version und Downloadzahl anzuzeigen, fragt sie die öffentliche GitHub-API direkt aus Ihrem Browser ab. Die einzige Ausnahme ist die Erinnerung per E-Mail, wenn Sie sie anfordern: siehe Abschnitt 5.</p>
 			
 
 			<h2>1. Wer die App bereitstellt</h2>
@@ -72,11 +72,18 @@
 			<p>Die App kontaktiert außerdem <b>GitHub</b>, und diese Verbindungen enthalten keinerlei Inhalte aus Ihren Dokumenten: um über die öffentliche API zu prüfen, ob eine neuere Version vorliegt; um ein Update herunterzuladen, wenn Sie es annehmen, aus dem öffentlichen Repository <code>LorenzoMontoli/biblo-releases</code>; und um von dort das Embedding-Modell zu laden, falls es nicht schon auf Ihrem Computer liegt — in den aktuellen Versionen steckt das Modell im Installationsprogramm, dieser Download findet also normalerweise nicht statt. Diese Anfragen tragen keine Kennung über Ihre IP-Adresse hinaus, und diese erreicht GitHub — nicht uns.</p>
 			
 
-			<h2>5. Die DSGVO in Kürze</h2>
+			<h2 id="promemoria">5. Die Erinnerung per E-Mail (nur auf der Website)</h2>
+			<p>Auf der Website können Sie uns bitten, Ihnen den Link zum Herunterladen von Biblo per E-Mail zu schicken, zum Beispiel wenn Sie mit dem Handy dort landen. Es ist die einzige Stelle, an der wir Daten von Ihnen erheben: die E-Mail-Adresse, die Sie eingeben, zusammen mit der Sprache der Seite.</p>
+			<p>Wir verwenden sie <b>nur, um Ihnen diese eine E-Mail zu schicken</b>, die Sie angefordert haben (Art. 6 Abs. 1 lit. b DSGVO). Wir speichern sie in keiner Liste, verwenden sie für nichts anderes und schreiben Ihnen nicht wieder.</p>
+			<p>Für den Versand nutzen wir Dienste, die die Adresse in unserem Auftrag verarbeiten: <b>Cloudflare</b>, das die Anfrage entgegennimmt (Cloudflare Workers) und prüft, dass sie nicht von einem automatisierten Programm stammt (Cloudflare Turnstile, nur geladen, wenn Sie das Erinnerungsfenster öffnen), und <b>Resend</b>, das die E-Mail zustellt und ihre Versanddaten (Adresse, Datum, Ergebnis) 30 Tage lang aufbewahrt. Es handelt sich um Unternehmen mit Sitz in den USA: Die Daten können auch außerhalb der Europäischen Union verarbeitet werden, mit den in der DSGVO vorgesehenen Garantien.</p>
+			<p>Damit niemand das Formular nutzen kann, um das Postfach eines anderen mit E-Mails zu überfluten, erhält jede Adresse höchstens eine Erinnerung pro Tag: Um sie wiederzuerkennen, bewahrt Resend 24 Stunden lang einen Fingerabdruck der Adresse auf (einen daraus abgeleiteten Code) und löscht ihn danach. Bei Fragen zu diesen Daten schreiben Sie an <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>.</p>
 			
-			<ul><li>Wenn Sie Biblo ausschließlich persönlich oder familiär nutzen, gilt die DSGVO für diese Nutzung gar nicht (Art. 2 Abs. 2 lit. c).</li><li>Wenn Sie sie beruflich für Dokumente mit Daten anderer Personen nutzen, sind <b>Sie</b> der Verantwortliche dieser Verarbeitung — einschließlich dessen, was Sie an den Modellanbieter senden.</li><li>Für den Inhalt Ihrer Dokumente, Fragen und Antworten sind wir weder Verantwortlicher noch Auftragsverarbeiter, aus einem einfachen Grund: Wir erhalten ihn nie.</li><li>Die einzigen personenbezogenen Daten, die wir verarbeiten, sind die E-Mails, die Sie uns für Unterstützung schreiben — genutzt allein, um Ihnen zu antworten.</li></ul>
 
-			<h2>6. Ihre Rechte, Änderungen, Kontakt</h2>
+			<h2>6. Die DSGVO in Kürze</h2>
+			
+			<ul><li>Wenn Sie Biblo ausschließlich persönlich oder familiär nutzen, gilt die DSGVO für diese Nutzung gar nicht (Art. 2 Abs. 2 lit. c).</li><li>Wenn Sie sie beruflich für Dokumente mit Daten anderer Personen nutzen, sind <b>Sie</b> der Verantwortliche dieser Verarbeitung — einschließlich dessen, was Sie an den Modellanbieter senden.</li><li>Für den Inhalt Ihrer Dokumente, Fragen und Antworten sind wir weder Verantwortlicher noch Auftragsverarbeiter, aus einem einfachen Grund: Wir erhalten ihn nie.</li><li>Die einzigen personenbezogenen Daten, die wir verarbeiten, sind die E-Mails, die Sie uns für Unterstützung schreiben — genutzt allein, um Ihnen zu antworten, sowie die Adresse, an die Sie die Erinnerung von der Website anfordern, nur für deren Versand verwendet (Abschnitt 5).</li></ul>
+
+			<h2>7. Ihre Rechte, Änderungen, Kontakt</h2>
 			<p>Ihre Daten bleiben auf Ihrem Gerät: Sie können sie also jederzeit selbst einsehen, berichtigen oder löschen. Für Supportkorrespondenz oder bei Datenschutzfragen schreiben Sie an <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>; Sie können sich außerdem bei einer Aufsichtsbehörde beschweren (in Deutschland bei der zuständigen Landesdatenschutzbehörde).</p>
 			<p>Ändert sich diese Erklärung wesentlich, erhöhen wir ihre Versionsnummer, und die App bittet Sie, sie erneut zu lesen und anzunehmen.</p>
 			
