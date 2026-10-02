@@ -24,7 +24,7 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=4bd36ebac7" />
+	<link rel="stylesheet" href="../assets/style.css?v=1b22f17a53" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
@@ -516,6 +516,7 @@
 	<dialog class="reminder" id="promemoria" aria-labelledby="reminder-title">
 		<div class="reminder-card">
 			<button type="button" class="reminder-x" data-reminder-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+			<div class="reminder-body">
 			<img class="reminder-logo" src="../assets/img/logo.png" alt="" width="56" height="56" />
 			<h2 id="reminder-title" tabindex="-1" autofocus>Biblo is a computer app</h2>
 			<p class="reminder-lead">It installs on Windows and Mac, not on phones. Leave us your email and we'll send you the download link, so it's waiting for you at your computer.</p>
@@ -538,7 +539,10 @@
 				<button type="button" class="btn btn-secondary btn-lg" data-reminder-share>Share the link</button>
 				<p class="reminder-hint" data-reminder-share-status>Send it to yourself on WhatsApp, in your notes or wherever you like: nothing goes through us.</p>
 			</div>
-			<button type="button" class="btn btn-lg reminder-site" data-reminder-close>Go to the website →</button>
+			</div>
+			<div class="reminder-foot">
+				<button type="button" class="btn btn-lg reminder-site" data-reminder-close>Go to the website →</button>
+			</div>
 		</div>
 	</dialog>
 	<script>window.BIBLO_REMINDER = {"endpoint":"https://biblo-promemoria.lorenzomontoli.workers.dev/promemoria","sitekey":"0x4AAAAAAFL1Ls5s4DDnB06g","url":"https://biblo-ai.com/en/","msgs":{"sending":"Sending…","wait_captcha":"One moment, checking that you're not a robot…","err_email":"Please check the address: it doesn't look valid.","err_captcha":"We couldn't verify that you're not a robot. Try again, or share the link below.","err_busy":"Too many requests in a short time: try again in a minute.","err_generic":"We couldn't send the email. Try again later, or share the link below.","share_text":"Biblo, the research assistant for your PDFs, to download on your computer","copied":"Link copied: paste it wherever you like."}};</script>

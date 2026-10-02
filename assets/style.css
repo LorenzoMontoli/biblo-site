@@ -1295,7 +1295,7 @@ html.has-dialog {
 	padding: 0;
 	border: 0;
 	background: transparent;
-	overflow: auto;
+	overflow: hidden;
 }
 .reminder::backdrop {
 	background: rgba(15, 23, 42, 0.45);
@@ -1306,11 +1306,38 @@ html.has-dialog {
 }
 .reminder-card {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	max-height: calc(100dvh - 1.5rem);
 	padding: 2rem 1.5rem 1.5rem;
 	background: var(--surface);
 	border-radius: var(--radius-lg);
 	box-shadow: var(--shadow-pop);
 	text-align: center;
+}
+/* Il contenuto scorre da solo se lo schermo e` basso; "Vai al sito" sta nel
+   piede, fuori dalla parte che scorre, cosi` non copre mai niente (prima era
+   agganciato in fondo e sull'iPhone SE copriva "Condividi il link"). Le due
+   ombre compaiono solo se c'e` altro sopra o sotto da scorrere. */
+.reminder-body {
+	flex: 1 1 auto;
+	min-height: 0;
+	margin-inline: -0.25rem;
+	padding-inline: 0.25rem;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	background:
+		linear-gradient(var(--surface) 30%, transparent) center top,
+		linear-gradient(transparent, var(--surface) 70%) center bottom,
+		radial-gradient(farthest-side at 50% 0, rgba(15, 23, 42, 0.16), transparent) center top,
+		radial-gradient(farthest-side at 50% 100%, rgba(15, 23, 42, 0.16), transparent) center bottom;
+	background-repeat: no-repeat;
+	background-size: 100% 2.5rem, 100% 2.5rem, 100% 0.75rem, 100% 0.75rem;
+	background-attachment: local, local, scroll, scroll;
+}
+.reminder-foot {
+	flex: none;
+	padding-top: 1.25rem;
 }
 .reminder[open] .reminder-card {
 	animation: reminder-in 0.18s ease-out;
@@ -1481,7 +1508,6 @@ html.has-dialog {
 /* "Vai al sito": ben visibile, scuro, per non confondersi col blu dell'invio */
 .reminder-site {
 	width: 100%;
-	margin-top: 1.5rem;
 	background: var(--ink);
 	color: #fff;
 }
@@ -1557,18 +1583,64 @@ html.has-dialog {
 	.reminder-or {
 		margin: 1rem 0 0.75rem;
 	}
-	.reminder-site {
-		margin-top: 1rem;
+	.reminder-foot {
+		padding-top: 1rem;
+	}
+}
+/* schermi bassi (iPhone SE: con la barra di Safari alla finestra restano
+   ~520 punti): via il logo (il nome e` gia` nel titolo), l'etichetta del campo
+   resta solo per gli screen reader (il campo dice gia` "nome@esempio.it"),
+   spazi piu` stretti. Cosi` in italiano entra tutta, "oppure" compreso. */
+@media (max-height: 43.75rem) {
+	.reminder-logo {
+		display: none;
+	}
+	/* senza logo il titolo sale all'altezza della X: spazio ai lati per lei */
+	.reminder-x {
+		top: 0.375rem;
+		right: 0.375rem;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+	.reminder h2 {
+		padding-inline: 1.75rem;
+		font-size: 1.1875rem;
+	}
+	.reminder-lead {
+		font-size: 0.875rem;
+		line-height: 1.45;
+	}
+	.reminder-note {
+		font-size: 0.75rem;
+	}
+	.reminder-label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+	.reminder-form {
+		margin-top: 0.875rem;
+	}
+	.reminder-or {
+		margin: 0.75rem 0 0.5rem;
+	}
+	.reminder-share .btn {
+		padding-block: 0.75rem;
+		font-size: 1rem;
+	}
+	.reminder-hint {
+		margin-top: 0.375rem;
+		font-size: 0.75rem;
+	}
+	.reminder-foot {
+		padding-top: 0.75rem;
 	}
 }
 /* la riga di stato vuota non occupa spazio (resta nella pagina per gli
    screen reader, che annunciano quando si riempie) */
 .reminder-status:empty {
 	min-height: 0;
-}
-/* "Vai al sito" sempre in vista, anche quando la finestra scorre */
-.reminder-site {
-	position: sticky;
-	bottom: 0.75rem;
-	box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18);
 }
