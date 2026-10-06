@@ -766,6 +766,11 @@ section {
 .gallery-item .shot {
 	box-shadow: var(--card-top-light), var(--shadow-card);
 }
+.gallery-tavola img {
+	width: 100%;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--card-top-light), var(--shadow-card);
+}
 .gallery-item figcaption {
 	margin-top: 1rem;
 	padding-inline: 0.25rem;

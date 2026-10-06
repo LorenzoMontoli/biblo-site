@@ -24,11 +24,11 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=1b22f17a53" />
+	<link rel="stylesheet" href="../assets/style.css?v=9ecaabf490" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.0","description":"Biblo è l'assistente AI per chi fa ricerca: legge i tuoi PDF sul tuo computer, risponde citando documento e pagina, trova e collega le fonti. Gratuito, con la tua chiave Google Gemini. Per Windows e Mac.","url":"https://biblo-ai.com/it/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.1","description":"Biblo è l'assistente AI per chi fa ricerca: legge i tuoi PDF sul tuo computer, risponde citando documento e pagina, trova e collega le fonti. Gratuito, con la tua chiave Google Gemini. Per Windows e Mac.","url":"https://biblo-ai.com/it/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Serve la connessione a internet?","acceptedAnswer":{"@type":"Answer","text":"Per leggere e cercare nei documenti no: quella parte è tutta locale. Serve per la chat e per l'ispezione, perché la risposta e le schede vengono generate da un modello linguistico che sta online."}},{"@type":"Question","name":"Quanto costa?","acceptedAnswer":{"@type":"Answer","text":"L'applicazione è gratuita. Per le funzioni AI serve una chiave di Google Gemini, il fornitore del modello, che ha un piano gratuito: il consumo della chat pesa su quel piano, non su di noi."}},{"@type":"Question","name":"Che documenti legge?","acceptedAnswer":{"@type":"Answer","text":"PDF, compresi quelli scansionati: se un documento non ha testo, Biblo lo passa all'OCR e poi lo tratta come tutti gli altri."}},{"@type":"Question","name":"Quanti documenti regge?","acceptedAnswer":{"@type":"Answer","text":"Biblo è sviluppato su una libreria di 70 volumi e oltre 11.000 pagine, e lavora normalmente. Il limite pratico non è il numero di file ma il tempo della prima lettura, che dipende dal tuo processore."}},{"@type":"Question","name":"Windows dice che l'autore è sconosciuto: è sicuro?","acceptedAnswer":{"@type":"Answer","text":"Succede solo con l'installer .exe scaricato da questo sito: è l'avviso che Windows mostra per ogni programma non firmato con un certificato commerciale. Dal Microsoft Store invece Biblo si installa senza avvisi, perché il pacchetto lo firma Microsoft. Se usi l'installer, puoi verificare l'impronta SHA-256 del file scaricato con il valore pubblicato qui sopra: se corrisponde, il file è esattamente quello pubblicato."}},{"@type":"Question","name":"I miei documenti servono ad addestrare un'intelligenza artificiale?","acceptedAnswer":{"@type":"Answer","text":"Da parte nostra no: non riceviamo né conserviamo i tuoi file. Alla generazione di una risposta viene inviato al fornitore del modello solo il brano necessario. Sul piano gratuito, però, Google può usare quei testi per migliorare i suoi modelli, e non lo si può disattivare. L'app te lo spiega quando inserisci la chiave."}},{"@type":"Question","name":"Posso usare una mia chiave?","acceptedAnswer":{"@type":"Answer","text":"Sì, ed è il funzionamento normale: la chiave la inserisci tu e le richieste passano dal tuo account presso il fornitore."}},{"@type":"Question","name":"Se disinstallo, perdo i documenti?","acceptedAnswer":{"@type":"Answer","text":"No. I PDF restano dove sono sempre stati, nelle tue cartelle. Sul Mac Biblo si toglie trascinandolo nel Cestino, e i dati che ha prodotto (indice, chat, impostazioni) restano nella cartella Libreria › Application Support › Biblo del tuo utente: cancellala anche lei se non ti servono più."}}]}</script>
 </head>
@@ -252,13 +252,13 @@
 			</article>
 			<article class="feature reveal">
 				<div class="feature-text">
-					<span class="tag">Citazioni</span>
-					<h3>Indice delle citazioni</h3>
-					<p>Tutto ciò che i tuoi testi citano — opere, autori, figure — raccolto in un indice unico e consultabile, con quante volte compare ogni voce.</p>
+					<span class="tag">OCR</span>
+					<h3>Scansioni e OCR</h3>
+					<p>I libri scansionati e i PDF senza testo vengono letti dall'OCR integrato e diventano cercabili come gli altri. Il testo riconosciuto sta accanto alla pagina, e lo puoi correggere.</p>
 				</div>
 				<div class="feature-shot"><div class="shot">
 			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/citazioni.webp" alt="L'elenco delle citazioni di Biblo diviso in documenti, autori e figure" width="1600" height="1000"
+			<img src="../assets/img/it/scansioni.webp" alt="Una pagina scansionata accanto al testo che Biblo ha riconosciuto" width="1600" height="1000"
 				loading="lazy" decoding="async" />
 		</div></div>
 			</article>
@@ -267,8 +267,8 @@
 			</div>
 			<div class="cols-4">
 				<div class="card card-hover reveal">
-					<h3>OCR per le scansioni</h3>
-					<p>I PDF senza testo vengono riconosciuti con l'OCR del sistema, quello di Windows o Vision sul Mac, e diventano cercabili come gli altri.</p>
+					<h3>Indice delle citazioni</h3>
+					<p>Tutto ciò che i tuoi testi citano — opere, autori, figure — raccolto in un indice unico e consultabile, con quante volte compare ogni voce.</p>
 				</div>
 				<div class="card card-hover reveal">
 					<h3>Selezioni</h3>
@@ -291,90 +291,34 @@
 			<div class="section-head">
 				<span class="eyebrow">Galleria</span>
 				<h2>Tutto quello che ci trovi dentro</h2>
-				<p>Ogni schermata è l'applicazione vera, con una libreria vera — e nella lingua che hai scelto qui sopra.</p>
+				<p>Ogni schermata è l'applicazione vera, nella lingua che hai scelto qui sopra. I documenti invece sono inventati: una libreria dimostrativa creata apposta.</p>
 			</div>
 		</div>
 		<div class="gallery-strip" tabindex="0" role="region" aria-label="Tutto quello che ci trovi dentro">
 			<div class="gallery-track">
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/chat.webp" alt="Chat con le fonti" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Chat con le fonti</b><span>Chiedi come faresti a un collega: risponde citando documento e pagina.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-01.webp" alt="Chiedi a tutta la tua libreria: una domanda cerca in ogni documento, e ogni risposta cita il documento e la pagina." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/chat-fonti.webp" alt="I passaggi citati" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>I passaggi citati</b><span>Sotto ogni risposta: i file usati e i brani esatti. Un clic apre il PDF.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-02.webp" alt="Tutta la tua libreria su uno scaffale: colleghi le cartelle una volta, senza caricare nulla. PDF in ogni lingua, libri scansionati compresi." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/libreria.webp" alt="La libreria in tre fasi" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>La libreria in tre fasi</b><span>Letti, ispezionati, collegati: l'avanzamento a colpo d'occhio.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-03.webp" alt="Controlla ogni affermazione alla fonte: un clic su una citazione apre il documento alla pagina citata." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/scaffale.webp" alt="Lo scaffale" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Lo scaffale</b><span>I documenti come volumi su una mensola, per data, titolo o autore.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-04.webp" alt="Un assistente per ogni compito: riassumere, confrontare, analizzare, trovare un passo. Oppure chiedi e basta: sceglie Biblo." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/cerca.webp" alt="Ricerca intelligente" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Ricerca intelligente</b><span>Descrivi un tema: trova i volumi che ne parlano, per pertinenza.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-05.webp" alt="Confronta, non limitarti a riassumere: dove due autori concordano, dove divergono e perché, con la pagina dietro ogni punto." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/citazioni.webp" alt="Indice delle citazioni" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Indice delle citazioni</b><span>Opere, autori e figure citate nei tuoi testi, in un indice solo.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-06.webp" alt="Chiedi nella tua lingua: le fonti possono essere in qualsiasi lingua, e Biblo risponde da tutte." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/skill.webp" alt="Assistenti specializzati" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Assistenti specializzati</b><span>Un assistente per ogni compito, scelto da solo in base alla domanda.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-07.webp" alt="I libri scansionati diventano interrogabili: l'OCR integrato trasforma le vecchie pagine in testo da cercare e a cui fare domande." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/selezioni.webp" alt="Selezioni" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Selezioni</b><span>Gruppi di documenti salvati: la conversazione resta dentro quel perimetro.</span></figcaption>
-				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/scansioni.webp" alt="Scansioni e OCR" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>Scansioni e OCR</b><span>I PDF senza testo vengono riconosciuti e diventano cercabili.</span></figcaption>
-				</figure>
-				<figure class="gallery-item">
-					<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
-			<img src="../assets/img/it/knowledge.webp" alt="La conoscenza estratta" width="1600" height="1000"
-				loading="lazy" decoding="async" />
-		</div>
-					<figcaption><b>La conoscenza estratta</b><span>Autori, entità e opere citate, esportabili in un archivio.</span></figcaption>
+				<figure class="gallery-item gallery-tavola">
+					<img src="../assets/img/it/tavola-08.webp" alt="I tuoi file restano sul tuo computer: lettura e indice sono locali, e a Google Gemini va solo il passo che serve alla risposta, con la tua chiave gratuita." width="1600" height="900" loading="lazy" decoding="async" />
 				</figure>
 			</div>
 		</div>
@@ -426,18 +370,18 @@
 				<p class="reminder-open-row"><button type="button" class="btn btn-lg reminder-open" data-reminder-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Sei sul telefono? Ricevi il link per email</button></p>
 				<p class="dl-missing" data-release-missing hidden>Il file non è ancora pubblicato: il pulsante porta alla pagina dei rilasci.</p>
 				<dl class="download-meta">
-					<div><dt>Versione</dt><dd data-release-version>1.2.0</dd></div>
-					<div><dt>Dimensione · Windows</dt><dd data-release-size>565 MB</dd></div>
+					<div><dt>Versione</dt><dd data-release-version>1.2.1</dd></div>
+					<div><dt>Dimensione · Windows</dt><dd data-release-size>566 MB</dd></div>
 					<div><dt>Dimensione · Mac</dt><dd data-release-size-mac>606 MB</dd></div>
-					<div><dt>Pubblicata il</dt><dd data-release-date>1 ottobre 2026</dd></div>
+					<div><dt>Pubblicata il</dt><dd data-release-date>6 ottobre 2026</dd></div>
 				</dl>
 				<div class="checksum"><b>Windows</b> · Impronta SHA-256 — Per verificarla, in PowerShell:
-					<code>(Get-FileHash Biblo_1.2.0_x64-setup.exe -Algorithm SHA256).Hash</code>
-					<code data-release-sha>E04E6D4D00BA388F16AA8AA6178D2C760DABBC09DE6A91D4A4143FE5C0EE7C5F</code>
+					<code>(Get-FileHash Biblo_1.2.1_x64-setup.exe -Algorithm SHA256).Hash</code>
+					<code data-release-sha>6F3076285986F1E544880F6B86373DFE1AE9B4DCEE07A494CAE356D45041A1BF</code>
 				</div>
 				<div class="checksum"><b>Mac</b> · Impronta SHA-256 — Per verificarla, nel Terminale:
-					<code>shasum -a 256 Biblo_1.2.0_aarch64.dmg</code>
-					<code data-release-sha-mac>a2b2f92b41ee35603876dd1c0b16529c65258c0d4f0c9db8b47e2f07d5c90da3</code>
+					<code>shasum -a 256 Biblo_1.2.1_aarch64.dmg</code>
+					<code data-release-sha-mac>c18a576600d92b52de93879b23ddde8c0f648bd6f5c00b40bfb80e95232b6b75</code>
 				</div>
 				<div class="note" style="margin-top:2rem">
 					<b>Dallo Store, nessun avviso</b>
@@ -575,6 +519,6 @@
 		</div>
 	</div>
 </footer>
-<script src="../assets/app.js?v=43460355c1" defer></script>
+<script src="../assets/app.js?v=3b50327552" defer></script>
 </body>
 </html>
