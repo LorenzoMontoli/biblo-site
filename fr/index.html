@@ -24,13 +24,13 @@
 	<meta name="theme-color" content="#f3f3f5" />
 	<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 	<link rel="apple-touch-icon" href="../assets/img/logo.png" />
-	<link rel="stylesheet" href="../assets/style.css?v=9ecaabf490" />
+	<link rel="stylesheet" href="../assets/style.css?v=761f9bacf6" />
 	<!-- Senza JavaScript la comparsa in scorrimento non scatta: il contenuto
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.1","description":"Biblo est l'assistant IA pour la recherche : il lit vos PDF sur votre ordinateur, répond en citant document et page, et trouve et relie vos sources. Gratuit, avec votre propre clé Google Gemini. Pour Windows et Mac.","url":"https://biblo-ai.com/fr/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
 	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
-	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il une connexion internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour lire et chercher dans les documents : cette partie est entièrement locale. Elle est nécessaire pour le chat et pour l'inspection, car la réponse et les fiches sont produites par un modèle de langage en ligne."}},{"@type":"Question","name":"Combien ça coûte ?","acceptedAnswer":{"@type":"Answer","text":"L'application est gratuite. Pour les fonctions d'IA, il faut une clé chez le fournisseur du modèle, Google Gemini, qui propose un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous."}},{"@type":"Question","name":"Quels documents lit-il ?","acceptedAnswer":{"@type":"Answer","text":"Les PDF, y compris numérisés : si un document n'a pas de couche de texte, Biblo le passe à l'OCR puis le traite comme les autres."}},{"@type":"Question","name":"Combien de documents supporte-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Biblo est développé sur une bibliothèque de 70 volumes et plus de 11 000 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur."}},{"@type":"Question","name":"Windows dit que l'éditeur est inconnu : est-ce sûr ?","acceptedAnswer":{"@type":"Answer","text":"Cela n'arrive qu'avec l'installateur .exe téléchargé sur ce site : c'est l'avertissement que Windows affiche pour tout programme non signé par un certificat commercial. Depuis le Microsoft Store, Biblo s'installe sans avertissement, car c'est Microsoft qui signe le paquet. Si vous utilisez l'installateur, vous pouvez comparer l'empreinte SHA-256 du fichier téléchargé avec celle publiée ci-dessus : si elles correspondent, le fichier est exactement celui qui a été publié."}},{"@type":"Question","name":"Mes documents servent-ils à entraîner une intelligence artificielle ?","acceptedAnswer":{"@type":"Answer","text":"Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle. Sur le plan gratuit, Google peut toutefois utiliser ces textes pour améliorer ses modèles, et cela ne peut pas être désactivé. L'application vous l'explique quand vous saisissez la clé."}},{"@type":"Question","name":"Puis-je utiliser ma propre clé ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est le fonctionnement normal : vous saisissez la clé et les requêtes passent par votre compte chez le fournisseur."}},{"@type":"Question","name":"Si je désinstalle, est-ce que je perds mes documents ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les PDF restent là où ils ont toujours été, dans vos dossiers. Sur Mac, on supprime Biblo en le glissant dans la Corbeille ; les données qu'il a produites (index, chats, réglages) restent dans le dossier Bibliothèque › Application Support › Biblo de votre utilisateur : supprimez-le aussi si vous n'en avez plus besoin."}}]}</script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il une connexion internet ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour lire et chercher dans les documents : cette partie est entièrement locale. Elle est nécessaire pour le chat et pour l'inspection, car la réponse et les fiches sont produites par un modèle de langage en ligne."}},{"@type":"Question","name":"Combien ça coûte ?","acceptedAnswer":{"@type":"Answer","text":"L'application est gratuite. Pour les fonctions d'IA, il faut une clé chez le fournisseur du modèle, Google Gemini, qui propose un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous."}},{"@type":"Question","name":"Comment obtenir la clé Google Gemini ?","acceptedAnswer":{"@type":"Answer","text":"Sur Google AI Studio, avec n'importe quel compte Google : c'est gratuit et cela prend deux minutes. La première fois, Google vous demande d'accepter ses conditions (il faut avoir au moins 18 ans) ; ensuite, vous créez la clé et la collez dans Biblo, qui la vérifie. La vidéo montre chaque étape."}},{"@type":"Question","name":"Quels documents lit-il ?","acceptedAnswer":{"@type":"Answer","text":"Les PDF, y compris numérisés : si un document n'a pas de couche de texte, Biblo le passe à l'OCR puis le traite comme les autres."}},{"@type":"Question","name":"Combien de documents supporte-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Biblo est développé sur une bibliothèque de 70 volumes et plus de 11 000 pages, et fonctionne normalement. La limite pratique n'est pas le nombre de fichiers mais la durée de la première lecture, qui dépend de votre processeur."}},{"@type":"Question","name":"Windows dit que l'éditeur est inconnu : est-ce sûr ?","acceptedAnswer":{"@type":"Answer","text":"Cela n'arrive qu'avec l'installateur .exe téléchargé sur ce site : c'est l'avertissement que Windows affiche pour tout programme non signé par un certificat commercial. Depuis le Microsoft Store, Biblo s'installe sans avertissement, car c'est Microsoft qui signe le paquet. Si vous utilisez l'installateur, vous pouvez comparer l'empreinte SHA-256 du fichier téléchargé avec celle publiée ci-dessus : si elles correspondent, le fichier est exactement celui qui a été publié."}},{"@type":"Question","name":"Mes documents servent-ils à entraîner une intelligence artificielle ?","acceptedAnswer":{"@type":"Answer","text":"Pas de notre côté : nous ne recevons ni ne conservons vos fichiers. Lors de la génération d'une réponse, seul le passage nécessaire est envoyé au fournisseur du modèle. Sur le plan gratuit, Google peut toutefois utiliser ces textes pour améliorer ses modèles, et cela ne peut pas être désactivé. L'application vous l'explique quand vous saisissez la clé."}},{"@type":"Question","name":"Puis-je utiliser ma propre clé ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est le fonctionnement normal : vous saisissez la clé et les requêtes passent par votre compte chez le fournisseur."}},{"@type":"Question","name":"Si je désinstalle, est-ce que je perds mes documents ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les PDF restent là où ils ont toujours été, dans vos dossiers. Sur Mac, on supprime Biblo en le glissant dans la Corbeille ; les données qu'il a produites (index, chats, réglages) restent dans le dossier Bibliothèque › Application Support › Biblo de votre utilisateur : supprimez-le aussi si vous n'en avez plus besoin."}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -65,9 +65,9 @@
 			</div>
 			<div class="hero-shot reveal">
 				<div class="shot">
-			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo — Chat</span></div>
-			<img src="../assets/img/fr/chat.webp" alt="Le chat de Biblo affichant une réponse et ses sources citées" width="1600" height="1000"
-				fetchpriority="high" decoding="async" />
+			<div class="shot-bar"><i></i><i></i><i></i><span>Biblo</span></div>
+			<video class="filmato" src="../assets/video/biblo-fr.mp4" poster="../assets/video/biblo-fr.webp"
+				width="1280" height="720" autoplay muted loop playsinline preload="auto" aria-label="Le chat de Biblo affichant une réponse et ses sources citées"></video>
 		</div>
 			</div>
 		</div>
@@ -430,6 +430,14 @@
 					<p>L'application est gratuite. Pour les fonctions d'IA, il faut une clé chez le fournisseur du modèle, Google Gemini, qui propose un plan gratuit : la consommation du chat pèse sur ce plan, pas sur nous.</p>
 				</details>
 				<details class="faq-item">
+					<summary>Comment obtenir la clé Google Gemini ?</summary>
+					<p>Sur Google AI Studio, avec n'importe quel compte Google : c'est gratuit et cela prend deux minutes. La première fois, Google vous demande d'accepter ses conditions (il faut avoir au moins 18 ans) ; ensuite, vous créez la clé et la collez dans Biblo, qui la vérifie. La vidéo montre chaque étape.</p>
+					<video class="faq-video" src="../assets/video/chiave-gemini.mp4" poster="../assets/video/chiave-gemini-poster.webp"
+						width="1280" height="720" controls preload="none" playsinline>
+						<track kind="subtitles" srclang="fr" src="../assets/video/chiave-gemini.fr.vtt" label="Français" default />
+					</video>
+				</details>
+				<details class="faq-item">
 					<summary>Quels documents lit-il ?</summary>
 					<p>Les PDF, y compris numérisés : si un document n'a pas de couche de texte, Biblo le passe à l'OCR puis le traite comme les autres.</p>
 				</details>
@@ -519,6 +527,6 @@
 		</div>
 	</div>
 </footer>
-<script src="../assets/app.js?v=3b50327552" defer></script>
+<script src="../assets/app.js?v=c0c44b50ee" defer></script>
 </body>
 </html>

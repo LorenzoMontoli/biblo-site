@@ -46,6 +46,15 @@
 		});
 	}
 
+	// Il video in cima: chi ha chiesto al sistema meno movimento lo trova
+	// fermo sulla copertina, coi comandi per avviarlo se vuole.
+	var filmato = document.querySelector('video.filmato');
+	if (filmato && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		filmato.removeAttribute('autoplay');
+		filmato.pause();
+		filmato.controls = true;
+	}
+
 	// Lingua scelta dal selettore: ricordata per il prossimo ingresso dalla radice.
 	document.querySelectorAll('.lang-picker a').forEach(function (a) {
 		a.addEventListener('click', function () {

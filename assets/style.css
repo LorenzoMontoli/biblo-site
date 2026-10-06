@@ -447,9 +447,20 @@ section {
 	font-size: 0.75rem;
 	color: var(--faint);
 }
-.shot img {
+.shot img,
+.shot video {
 	width: 100%;
+	height: auto;
 	display: block;
+}
+.faq-video {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-top: 0.875rem;
+	border-radius: var(--radius);
+	border: 1px solid var(--line2);
+	background: #000;
 }
 
 .hero-shot {
