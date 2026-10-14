@@ -938,6 +938,9 @@ section {
 .ms-badge {
 	border-radius: 0.5rem;
 }
+/* dal 2026-10-14 anche il badge ufficiale del Mac App Store usa queste regole
+   (classe ms-badge + mas-badge): stessa altezza, stesso effetto al passaggio.
+   Ha gia` gli angoli arrotondati nel disegno. */
 .ms-badge img {
 	display: block;
 	height: var(--badge-h);
