@@ -29,7 +29,7 @@
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.2","description":"Biblo is the AI assistant for research: it reads your PDFs on your computer, answers citing document and page, and finds and connects your sources. Free, with your own Google Gemini key. For Windows and Mac.","url":"https://biblo-ai.com/en/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
-	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
+	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":"","conta":"https://biblo-promemoria.lorenzomontoli.workers.dev/conta"};</script>
 	<meta name="robots" content="index,follow" />
 </head>
 <body>
@@ -48,10 +48,10 @@
 	<article class="legal-page">
 		<a class="back-link" href="./">← Back to the site</a>
 		<h1>Privacy policy</h1>
-		<p class="updated">Last updated: September 30, 2026</p>
+		<p class="updated">Last updated: October 15, 2026</p>
 		<h2>In two lines</h2>
 			<p>Biblo runs entirely on your computer. We run no servers: what you do in the app is not collected, not sent to us, not stored by us and not visible to us. No tracking, no usage statistics, no account.</p>
-			<p>The same goes for this website: no profiling cookies, no third-party analytics. To show the current version and the download count, it queries GitHub's public API straight from your browser. The only exception is the email reminder, if you choose to request it: see section 5.</p>
+			<p>The same goes for this website: no cookies, no third-party analytics. It counts visits anonymously, only as daily totals, and collects data of yours only if you ask for the email reminder: see section 5. To show the current version, it queries GitHub's public API straight from your browser.</p>
 			
 
 			<h2>1. Who provides the app</h2>
@@ -72,8 +72,10 @@
 			<p>The app also contacts <b>GitHub</b>, and these connections carry no content from your documents: to check its public API for a newer version; to download an update, when you accept one, from the public repository <code>LorenzoMontoli/biblo-releases</code>; and to download the embedding model from there if it is not already on your computer — in the current versions the model ships inside the installer, so this download normally does not happen. These requests carry no identifier beyond your IP address, which reaches GitHub — not us.</p>
 			
 
-			<h2 id="promemoria">5. The email reminder (website only)</h2>
-			<p>On the website you can ask us to email you the link to download Biblo, for example if you arrive there from your phone. It's the only place where we collect any data of yours: the email address you type, together with the language of the page.</p>
+			<h2 id="promemoria">5. The website: visit counts and the email reminder</h2>
+			<p><b>Visits.</b> The website counts how many people visit it and where they come from, anonymously. Each time you open a page or click a download button, your browser sends our service on <b>Cloudflare</b> (Cloudflare Workers) a request containing: the page, the name of the site you came from (for example reddit.com, never the full address) or the campaign written in the link, your operating system (Windows, Mac, ...) and, for downloads, the type of file. Cloudflare adds the country, derived from the connection.</p>
+			<p>We don't keep a log of visits from this data: the service adds 1 to that day's total for that combination and keeps nothing else. No cookies, no identifiers, nothing stored on your device; your IP address is not saved (it is used only at that moment, to limit abuse). The totals cannot be traced back to you. We do this on the basis of legitimate interest (Art. 6(1)(f) GDPR): understanding whether and where the site is being found. Cloudflare is based in the United States: what is written below for the reminder applies.</p>
+			<p><b>The email reminder.</b> On the website you can ask us to email you the link to download Biblo, for example if you arrive there from your phone. It's the only place where we collect any data of yours: the email address you type, together with the language of the page.</p>
 			<p>We use it <b>only to send you that single email</b>, which you asked for (Art. 6(1)(b) GDPR). We don't save it in any list, don't use it for anything else and won't write to you again.</p>
 			<p>To send it we rely on services that process the address on our behalf: <b>Cloudflare</b>, which receives the request (Cloudflare Workers) and checks that it doesn't come from an automated program (Cloudflare Turnstile, loaded only when you open the reminder window), and <b>Resend</b>, which delivers the email and keeps its delivery data (address, date, outcome) for 30 days. They are companies based in the United States: the data may also be processed outside the European Union, with the safeguards required by the GDPR.</p>
 			<p>So that nobody can use the form to flood someone else's inbox, each address receives at most one reminder a day: to recognise it, Resend keeps a fingerprint of the address (a code derived from it) for 24 hours, then deletes it. For any question about this data, write to <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>.</p>

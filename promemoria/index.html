@@ -21,7 +21,7 @@
 					if (langs.indexOf(nav[i]) >= 0) want = nav[i];
 				}
 			}
-			location.replace('../' + (want || 'en') + '/' + (function () {
+			var suffisso = String((function () {
 				var ua = navigator.userAgent || '';
 				var uad = navigator.userAgentData || null;
 				var piatt = (uad && uad.platform) || navigator.platform || '';
@@ -29,6 +29,18 @@
 				var mobile = (uad && uad.mobile) || ipad || /Android|iPhone|iPad|iPod|Mobile|Silk|Kindle|CrOS/i.test(ua);
 				return !mobile && /Win|Mac/i.test(piatt + ' ' + ua) ? '#download' : '?promemoria';
 			})());
+			var hash = '';
+			var cut = suffisso.indexOf('#');
+			if (cut >= 0) { hash = suffisso.slice(cut); suffisso = suffisso.slice(0, cut); }
+			var da = 'qr';
+			try {
+				var ref = document.referrer ? new URL(document.referrer).hostname : '';
+				if (ref && ref !== location.hostname) da = ref;
+			} catch (e) {}
+			var query = [suffisso.replace(/^\?/, ''), location.search.replace(/^\?/, ''), 'da=' + encodeURIComponent(da)]
+				.filter(Boolean)
+				.join('&');
+			location.replace('../' + (want || 'en') + '/?' + query + hash);
 		})();
 	</script>
 </head>

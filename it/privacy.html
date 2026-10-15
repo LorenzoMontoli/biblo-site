@@ -29,7 +29,7 @@
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.2","description":"Biblo è l'assistente AI per chi fa ricerca: legge i tuoi PDF sul tuo computer, risponde citando documento e pagina, trova e collega le fonti. Gratuito, con la tua chiave Google Gemini. Per Windows e Mac.","url":"https://biblo-ai.com/it/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
-	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
+	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":"","conta":"https://biblo-promemoria.lorenzomontoli.workers.dev/conta"};</script>
 	<meta name="robots" content="index,follow" />
 </head>
 <body>
@@ -48,10 +48,10 @@
 	<article class="legal-page">
 		<a class="back-link" href="./">← Torna al sito</a>
 		<h1>Informativa privacy</h1>
-		<p class="updated">Ultimo aggiornamento: 30 settembre 2026</p>
+		<p class="updated">Ultimo aggiornamento: 15 ottobre 2026</p>
 		<h2>In due righe</h2>
 			<p>Biblo gira interamente sul tuo computer. Non abbiamo server: quello che fai nell'app non viene raccolto, non ci viene trasmesso, non lo conserviamo e non lo vediamo. Nessun tracciamento, nessuna statistica d'uso, nessun account.</p>
-			<p>Vale anche per questo sito: nessun cookie di profilazione, nessuno strumento di analisi di terze parti. Per mostrare versione e numero di download interroga l'API pubblica di GitHub direttamente dal tuo browser. L'unica eccezione è il promemoria via email, se scegli di chiederlo: vedi il punto 5.</p>
+			<p>Vale anche per questo sito: nessun cookie, nessuno strumento di analisi di terze parti. Conta le visite in forma anonima, solo come totali per giorno, e raccoglie un tuo dato soltanto se chiedi il promemoria via email: vedi il punto 5. Per mostrare la versione interroga l'API pubblica di GitHub direttamente dal tuo browser.</p>
 			
 
 			<h2>1. Chi fornisce l'app</h2>
@@ -72,8 +72,10 @@
 			<p>L'app contatta anche <b>GitHub</b>, e queste connessioni non portano con sé alcun contenuto dei tuoi documenti: per controllare sull'API pubblica se esiste una versione più recente; per scaricare un aggiornamento, quando lo accetti, dal repository pubblico <code>LorenzoMontoli/biblo-releases</code>; e per scaricare da lì il modello di embedding se non è già sul tuo computer — nelle versioni attuali il modello è incluso nell'installer, quindi di norma questo download non avviene. Queste richieste non portano alcun identificativo oltre al tuo indirizzo IP, che arriva a GitHub — non a noi.</p>
 			
 
-			<h2 id="promemoria">5. Il promemoria via email (solo sul sito)</h2>
-			<p>Sul sito puoi chiederci di mandarti per email il link per scaricare Biblo, per esempio se ci arrivi dal telefono. È l'unico punto in cui raccogliamo un tuo dato: l'indirizzo email che scrivi, insieme alla lingua della pagina.</p>
+			<h2 id="promemoria">5. Il sito: visite contate e promemoria via email</h2>
+			<p><b>Le visite.</b> Il sito conta quante persone lo visitano e da dove arrivano, in forma anonima. A ogni pagina aperta e a ogni clic su un pulsante di download il tuo browser manda al nostro servizio su <b>Cloudflare</b> (Cloudflare Workers) una richiesta con: la pagina, il nome del sito da cui arrivi (per esempio reddit.com, mai l'indirizzo completo) o la campagna scritta nel link, il sistema operativo (Windows, Mac, ...) e, per i download, il tipo di file. Cloudflare aggiunge il paese, ricavato dalla connessione.</p>
+			<p>Con questi dati non teniamo un registro delle visite: il servizio aggiunge 1 al totale di quel giorno per quella combinazione e non conserva altro. Niente cookie, niente identificativi, niente salvato sul tuo dispositivo; il tuo indirizzo IP non viene salvato (serve solo al momento, per limitare gli abusi). Dai totali non si può risalire a te. Lo facciamo per legittimo interesse (art. 6.1.f GDPR): capire se il sito viene trovato e da dove. Cloudflare ha sede negli Stati Uniti: vale quanto scritto più sotto per il promemoria.</p>
+			<p><b>Il promemoria via email.</b> Sul sito puoi chiederci di mandarti per email il link per scaricare Biblo, per esempio se ci arrivi dal telefono. È l'unico punto in cui raccogliamo un tuo dato: l'indirizzo email che scrivi, insieme alla lingua della pagina.</p>
 			<p>Lo usiamo <b>solo per spedirti quell'unica email</b>, che ci hai chiesto tu (art. 6.1.b GDPR). Non lo salviamo in nessuna lista, non lo usiamo per altro e non ti scriveremo di nuovo.</p>
 			<p>Per spedirla ci appoggiamo a servizi che trattano l'indirizzo per conto nostro: <b>Cloudflare</b>, che riceve la richiesta (Cloudflare Workers) e verifica che non arrivi da un programma automatico (Cloudflare Turnstile, caricato solo quando apri la finestra del promemoria), e <b>Resend</b>, che consegna l'email e ne conserva i dati di invio (indirizzo, data, esito) per 30 giorni. Sono aziende con sede negli Stati Uniti: i dati possono essere trattati anche fuori dall'Unione europea, con le garanzie previste dal GDPR.</p>
 			<p>Perché nessuno possa usare il modulo per riempire di email la casella di un altro, ogni indirizzo riceve al massimo un promemoria al giorno: per riconoscerlo, Resend tiene per 24 ore un'impronta dell'indirizzo (un codice ricavato da esso), poi la cancella. Per qualunque domanda su questi dati scrivi a <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>.</p>

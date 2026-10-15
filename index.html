@@ -28,7 +28,19 @@
 					if (langs.indexOf(nav[i]) >= 0) want = nav[i];
 				}
 			}
-			location.replace('./' + (want || 'en') + '/' + '');
+			var suffisso = String('');
+			var hash = '';
+			var cut = suffisso.indexOf('#');
+			if (cut >= 0) { hash = suffisso.slice(cut); suffisso = suffisso.slice(0, cut); }
+			var da = '-';
+			try {
+				var ref = document.referrer ? new URL(document.referrer).hostname : '';
+				if (ref && ref !== location.hostname) da = ref;
+			} catch (e) {}
+			var query = [suffisso.replace(/^\?/, ''), location.search.replace(/^\?/, ''), 'da=' + encodeURIComponent(da)]
+				.filter(Boolean)
+				.join('&');
+			location.replace('./' + (want || 'en') + '/?' + query + hash);
 		})();
 	</script>
 </head>

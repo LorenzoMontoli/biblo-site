@@ -29,7 +29,7 @@
 	     deve restare visibile lo stesso, mai una pagina mezza vuota. -->
 	<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 	<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Biblo","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS 15","softwareVersion":"1.2.2","description":"Biblo ist der KI-Assistent für die Forschung: Es liest Ihre PDFs auf Ihrem Rechner, antwortet mit Dokument und Seite und findet und verknüpft Ihre Quellen. Kostenlos, mit Ihrem eigenen Google-Gemini-Schlüssel. Für Windows und Mac.","url":"https://biblo-ai.com/de/privacy.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
-	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":""};</script>
+	<script>window.BIBLO_SITE = {"repo":"LorenzoMontoli/biblo-releases","counter":"","conta":"https://biblo-promemoria.lorenzomontoli.workers.dev/conta"};</script>
 	<meta name="robots" content="index,follow" />
 </head>
 <body>
@@ -48,10 +48,10 @@
 	<article class="legal-page">
 		<a class="back-link" href="./">← Zurück zur Website</a>
 		<h1>Datenschutzerklärung</h1>
-		<p class="updated">Zuletzt aktualisiert: 30. September 2026</p>
+		<p class="updated">Zuletzt aktualisiert: 15. Oktober 2026</p>
 		<h2>In zwei Zeilen</h2>
 			<p>Biblo läuft vollständig auf Ihrem Computer. Wir betreiben keine Server: Was Sie in der App tun, wird nicht erfasst, nicht an uns übertragen, von uns nicht gespeichert und nicht eingesehen. Kein Tracking, keine Nutzungsstatistiken, kein Konto.</p>
-			<p>Das gilt auch für diese Website: keine Profiling-Cookies, keine Analysewerkzeuge Dritter. Um Version und Downloadzahl anzuzeigen, fragt sie die öffentliche GitHub-API direkt aus Ihrem Browser ab. Die einzige Ausnahme ist die Erinnerung per E-Mail, wenn Sie sie anfordern: siehe Abschnitt 5.</p>
+			<p>Das gilt auch für diese Website: keine Cookies, keine Analysewerkzeuge Dritter. Sie zählt Besuche anonym, nur als Tagessummen, und erhebt Daten von Ihnen nur, wenn Sie die Erinnerung per E-Mail anfordern: siehe Abschnitt 5. Um die Version anzuzeigen, fragt sie die öffentliche GitHub-API direkt aus Ihrem Browser ab.</p>
 			
 
 			<h2>1. Wer die App bereitstellt</h2>
@@ -72,8 +72,10 @@
 			<p>Die App kontaktiert außerdem <b>GitHub</b>, und diese Verbindungen enthalten keinerlei Inhalte aus Ihren Dokumenten: um über die öffentliche API zu prüfen, ob eine neuere Version vorliegt; um ein Update herunterzuladen, wenn Sie es annehmen, aus dem öffentlichen Repository <code>LorenzoMontoli/biblo-releases</code>; und um von dort das Embedding-Modell zu laden, falls es nicht schon auf Ihrem Computer liegt — in den aktuellen Versionen steckt das Modell im Installationsprogramm, dieser Download findet also normalerweise nicht statt. Diese Anfragen tragen keine Kennung über Ihre IP-Adresse hinaus, und diese erreicht GitHub — nicht uns.</p>
 			
 
-			<h2 id="promemoria">5. Die Erinnerung per E-Mail (nur auf der Website)</h2>
-			<p>Auf der Website können Sie uns bitten, Ihnen den Link zum Herunterladen von Biblo per E-Mail zu schicken, zum Beispiel wenn Sie mit dem Handy dort landen. Es ist die einzige Stelle, an der wir Daten von Ihnen erheben: die E-Mail-Adresse, die Sie eingeben, zusammen mit der Sprache der Seite.</p>
+			<h2 id="promemoria">5. Die Website: gezählte Besuche und Erinnerung per E-Mail</h2>
+			<p><b>Besuche.</b> Die Website zählt anonym, wie viele Menschen sie besuchen und woher sie kommen. Bei jeder geöffneten Seite und jedem Klick auf eine Download-Schaltfläche sendet Ihr Browser an unseren Dienst bei <b>Cloudflare</b> (Cloudflare Workers) eine Anfrage mit: der Seite, dem Namen der Website, von der Sie kommen (zum Beispiel reddit.com, nie die vollständige Adresse) oder der im Link angegebenen Kampagne, dem Betriebssystem (Windows, Mac, ...) und bei Downloads der Art der Datei. Cloudflare ergänzt das Land, abgeleitet aus der Verbindung.</p>
+			<p>Aus diesen Daten führen wir kein Besuchsprotokoll: Der Dienst addiert 1 zur Tagessumme dieser Kombination und speichert sonst nichts. Keine Cookies, keine Kennungen, nichts auf Ihrem Gerät gespeichert; Ihre IP-Adresse wird nicht gespeichert (sie dient nur im Moment dazu, Missbrauch zu begrenzen). Aus den Summen lässt sich nicht auf Sie schließen. Rechtsgrundlage ist unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO): zu verstehen, ob und woher die Website gefunden wird. Cloudflare hat seinen Sitz in den USA: Es gilt, was weiter unten für die Erinnerung steht.</p>
+			<p><b>Die Erinnerung per E-Mail.</b> Auf der Website können Sie uns bitten, Ihnen den Link zum Herunterladen von Biblo per E-Mail zu schicken, zum Beispiel wenn Sie mit dem Handy dort landen. Es ist die einzige Stelle, an der wir Daten von Ihnen erheben: die E-Mail-Adresse, die Sie eingeben, zusammen mit der Sprache der Seite.</p>
 			<p>Wir verwenden sie <b>nur, um Ihnen diese eine E-Mail zu schicken</b>, die Sie angefordert haben (Art. 6 Abs. 1 lit. b DSGVO). Wir speichern sie in keiner Liste, verwenden sie für nichts anderes und schreiben Ihnen nicht wieder.</p>
 			<p>Für den Versand nutzen wir Dienste, die die Adresse in unserem Auftrag verarbeiten: <b>Cloudflare</b>, das die Anfrage entgegennimmt (Cloudflare Workers) und prüft, dass sie nicht von einem automatisierten Programm stammt (Cloudflare Turnstile, nur geladen, wenn Sie das Erinnerungsfenster öffnen), und <b>Resend</b>, das die E-Mail zustellt und ihre Versanddaten (Adresse, Datum, Ergebnis) 30 Tage lang aufbewahrt. Es handelt sich um Unternehmen mit Sitz in den USA: Die Daten können auch außerhalb der Europäischen Union verarbeitet werden, mit den in der DSGVO vorgesehenen Garantien.</p>
 			<p>Damit niemand das Formular nutzen kann, um das Postfach eines anderen mit E-Mails zu überfluten, erhält jede Adresse höchstens eine Erinnerung pro Tag: Um sie wiederzuerkennen, bewahrt Resend 24 Stunden lang einen Fingerabdruck der Adresse auf (einen daraus abgeleiteten Code) und löscht ihn danach. Bei Fragen zu diesen Daten schreiben Sie an <a href="mailto:lorenzomontoli@gmail.com">lorenzomontoli@gmail.com</a>.</p>

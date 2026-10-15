@@ -1,6 +1,7 @@
-/* Biblo — sito. Quattro cose sole, tutte facoltative: se una fallisce, la
+/* Biblo — sito. Cinque cose sole, tutte facoltative: se una fallisce, la
    pagina resta perfettamente utilizzabile (i valori scritti nell'HTML restano validi).
 
+   0. visite: un segnale anonimo per pagina aperta e per clic su Scarica
    1. rifiniture: ombra dell'intestazione, comparsa in scorrimento, lingua ricordata,
       pulsante in cima del Mac per chi visita da un Mac (se la pagina offre il Mac)
    2. dati del rilascio letti da GitHub, cosi` versione/peso/link non vanno aggiornati a mano
@@ -12,6 +13,103 @@
 
 	var CFG = window.BIBLO_SITE || {};
 	var LANG = document.documentElement.lang || 'en';
+
+	/* ---------- 0. visite ---------------------------------------------- */
+
+	// Ogni pagina aperta manda UN segnale al Worker del sito (site/worker,
+	// config `metriche`): che pagina e`, da dove si arriva (solo il nome del
+	// sito, o la sorgente scritta nel link: utm_source), il sistema del
+	// computer. Il Worker somma +1 al contatore del giorno, col paese che gli
+	// dice Cloudflare. Niente cookie, niente identificativi, niente salvato sul
+	// dispositivo: informativa del sito, punto 1. "visita" = si entra nel sito
+	// da fuori; "pagina" = ci si muove dentro, o si ricarica.
+	// Gira PRIMA del promemoria (4), che toglie dall'indirizzo tutta la query.
+
+	function sistema() {
+		try {
+			var uad = navigator.userAgentData;
+			var s = ((uad && uad.platform) || navigator.platform || '') + ' ' + (navigator.userAgent || '');
+			if (/android/i.test(s)) return 'android';
+			if (/iphone|ipad|ipod/i.test(s) || (/mac/i.test(s) && navigator.maxTouchPoints > 1)) return 'ios';
+			if (/cros/i.test(s)) return 'chromeos';
+			if (/win/i.test(s)) return 'windows';
+			if (/mac/i.test(s)) return 'mac';
+			if (/linux/i.test(s)) return 'linux';
+		} catch (e) {
+			/* niente */
+		}
+		return 'altro';
+	}
+
+	var visita = (function () {
+		if (!window.URLSearchParams) return null;
+		try {
+			var q = new URLSearchParams(location.search);
+			var da = q.get('da'); // messo dalle pagine che smistano per lingua
+			var utm = q.get('utm_source') || q.get('ref') || '';
+			var ref = '';
+			try {
+				ref = document.referrer ? new URL(document.referrer).hostname : '';
+			} catch (e) {
+				/* referrer illeggibile: come se non ci fosse */
+			}
+			var interno = !!ref && ref === location.hostname;
+			var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+			var ripetuta = !!nav && (nav.type === 'reload' || nav.type === 'back_forward');
+			var ingresso = !ripetuta && (da !== null || !!utm || !interno);
+			var fonte = utm || (da && da !== '-' ? da : '') || (interno ? '' : ref) || (ingresso ? 'diretto' : 'interno');
+			var campagna = q.get('utm_campaign') || '';
+
+			// I parametri della provenienza spariscono dall'indirizzo: chi lo
+			// copia e lo condivide non si porta dietro la fonte di qualcun altro.
+			var tolti = false;
+			['da', 'ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+				if (q.has(k)) {
+					q.delete(k);
+					tolti = true;
+				}
+			});
+			if (tolti) {
+				var resto = q.toString();
+				history.replaceState(null, '', location.pathname + (resto ? '?' + resto : '') + location.hash);
+			}
+			// I programmi che pilotano il browser (prove automatiche) non contano.
+			if (!CFG.conta || !navigator.sendBeacon || navigator.webdriver) return null;
+			return { p: location.pathname, f: fonte, c: campagna, s: sistema(), ingresso: ingresso };
+		} catch (e) {
+			return null;
+		}
+	})();
+
+	function segnala(evento, dettaglio) {
+		if (!visita) return;
+		try {
+			navigator.sendBeacon(
+				CFG.conta,
+				JSON.stringify({ e: evento, p: visita.p, f: visita.f, c: visita.c, s: visita.s, d: dettaglio || '' })
+			);
+		} catch (e) {
+			/* il conteggio non deve mai disturbare la pagina */
+		}
+	}
+
+	segnala(visita && visita.ingresso ? 'visita' : 'pagina');
+
+	// I clic su Scarica, per tipo: Microsoft Store, Mac App Store, installer
+	// .exe, .dmg del Mac. Il badge di Apple ha anche la classe del badge
+	// Microsoft (stessa forma): si guarda prima `mas-badge`.
+	document.querySelectorAll('.ms-badge, [data-download-link], [data-download-mac]').forEach(function (a) {
+		a.addEventListener('click', function () {
+			var tipo = a.classList.contains('mas-badge')
+				? 'mas'
+				: a.classList.contains('ms-badge')
+					? 'store'
+					: a.hasAttribute('data-download-mac')
+						? 'dmg'
+						: 'exe';
+			segnala('scarica', tipo);
+		});
+	});
 
 	/* ---------- 1. rifiniture ---------------------------------------- */
 
@@ -455,6 +553,7 @@
 		var esitoCond = dlg.querySelector('[data-reminder-share-status]');
 		if (condividi) {
 			condividi.addEventListener('click', function () {
+				segnala('condividi');
 				if (navigator.share) {
 					navigator.share({ title: 'Biblo', text: R.msgs.share_text, url: R.url }).catch(function () {
 						/* annullata da chi condivide: va bene cosi` */
